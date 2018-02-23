@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>基于hexo+github博客的搭建 | 小亭子的微博</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="介绍一下基于hexo+github博客的搭建。 1.建立空文件夹任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。比如（我自己的myblog）： 2.安装node检测node是否已安装:打开myblog，按住shift+鼠标右键，输入以下命令1$ node -v 若没有，请自行安装 3.安装hexo安装hexo之前必须确保已安装node。之后执行以下代码①安装hexo1$ npm in">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于hexo+github博客的搭建">
+<meta property="og:url" content="http://yoursite.com/2018/02/22/hexo/index.html">
+<meta property="og:site_name" content="小亭子的微博">
+<meta property="og:description" content="介绍一下基于hexo+github博客的搭建。 1.建立空文件夹任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。比如（我自己的myblog）： 2.安装node检测node是否已安装:打开myblog，按住shift+鼠标右键，输入以下命令1$ node -v 若没有，请自行安装 3.安装hexo安装hexo之前必须确保已安装node。之后执行以下代码①安装hexo1$ npm in">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/blank.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/node.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/hexo.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/hexos.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/hg.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/hs.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/git.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/uname.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/none.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/key.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/ssh.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/ls.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/eval.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/add.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/in.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/addkey.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/dkeys.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/success.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/login.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/deployment.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/github.jpg">
+<meta property="og:updated_time" content="2018-02-23T05:50:04.922Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于hexo+github博客的搭建">
+<meta name="twitter:description" content="介绍一下基于hexo+github博客的搭建。 1.建立空文件夹任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。比如（我自己的myblog）： 2.安装node检测node是否已安装:打开myblog，按住shift+鼠标右键，输入以下命令1$ node -v 若没有，请自行安装 3.安装hexo安装hexo之前必须确保已安装node。之后执行以下代码①安装hexo1$ npm in">
+<meta name="twitter:image" content="http://yoursite.com/2018/02/22/img/blank.jpg">
+  
+    <link rel="alternate" href="/atom.xml" title="小亭子的微博" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">小亭子的微博</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Studing !!!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hexo" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/02/22/hexo/" class="article-date">
+  <time datetime="2018-02-22T10:20:11.761Z" itemprop="datePublished">2018-02-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      基于hexo+github博客的搭建
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>介绍一下基于hexo+github博客的搭建。</p>
+<h2 id="1-建立空文件夹"><a href="#1-建立空文件夹" class="headerlink" title="1.建立空文件夹"></a>1.建立空文件夹</h2><p>任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。<br>比如（我自己的myblog）：<br><img src="../img/blank.jpg" alt="" title="目录"></p>
+<h2 id="2-安装node"><a href="#2-安装node" class="headerlink" title="2.安装node"></a>2.安装node</h2><h3 id="检测node是否已安装"><a href="#检测node是否已安装" class="headerlink" title="检测node是否已安装:"></a>检测node是否已安装:</h3><p>打开myblog，按住shift+鼠标右键，输入以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/node.jpg" alt="" title="安装node"><br>若没有，请自行安装</p>
+<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h2><h3 id="安装hexo之前必须确保已安装node。之后执行以下代码"><a href="#安装hexo之前必须确保已安装node。之后执行以下代码" class="headerlink" title="安装hexo之前必须确保已安装node。之后执行以下代码"></a>安装hexo之前必须确保已安装node。之后执行以下代码</h3><p>①安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>正在安装中…<br><img src="../img/hexo.jpg" alt="" title="安装hexo"><br>安装成功！！！<br><img src="../img/hexos.jpg" alt="" title="安装hexo成功"></p>
+<p>②初始化hexo，生成一些文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>③安装所需要的组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<p>④生成静态页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/hg.jpg" alt="" title="生成静态页面"></p>
+<p>⑤打开服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/hs.jpg" alt="" title="打开服务器"></p>
+<p>⑥浏览器地址栏输入localhost:4000，可以看到本地博客</p>
+<h2 id="5-将本地博客连入GitHub仓库"><a href="#5-将本地博客连入GitHub仓库" class="headerlink" title="5.将本地博客连入GitHub仓库"></a>5.将本地博客连入GitHub仓库</h2><p>①安装git<br>若出现以下内容，说明电脑已安装git<br><img src="../img/git.jpg" alt="" title="安装git"></p>
+<p>②设置用户名和邮箱<br>在myblog文件夹中点击右键，点击Git Base Here<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure>
+<p><img src="../img/uname.jpg" alt="" title="设置用户名和邮箱"></p>
+<p>③检查是否有.ssh的文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p>若以前没有.ssh文件夹，则显示：<br><img src="../img/none.jpg" alt="" title="没有.ssh"></p>
+<p>④生成密匙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure></p>
+<p>此处填写自己的邮箱<br>连续三个回车，直到出现(yes/no)，输入yes。<br>可以看到创建了一个.ssh的文件夹（包含id_rsa和id_rsa.pub两个文件），并生成密匙。<br>（两个文件存储路径默认在图中所示，不同电脑有所不同）<br><img src="../img/key.jpg" alt="" title="生成密匙"></p>
+<p>④再次检查.ssh文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/ssh.jpg" alt="" title="进入.ssh"></p>
+<p>⑤进入ssh文件夹，输入ls，出现id_rsa id_rsa.pub，说明生成密匙成功。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/ls.jpg" alt="" title="文件存在"></p>
+<p>⑥输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/eval.jpg" alt="" title="添加密匙到ssh-agent"></p>
+<p>⑦再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/add.jpg" alt="" title="添加生成的SSH key到ssh-agent"></p>
+<p>⑧登录GitHub，打开首页的右下角仓库。<br><img src="../img/in.jpg" alt="" title="登录"><br><img src="../img/addkey.jpg" alt="" title="添加密匙"><br><img src="../img/dkeys.jpg" alt="" title="设置密匙"></p>
+<p>⑨测试添加ssh是否成功。若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p><img src="../img/success.jpg" alt="" title="成功"></p>
+<p>⑩连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><img src="../img/login.jpg" alt="" title="验证用户"></p>
+<h2 id="6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><a href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。" class="headerlink" title="6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。"></a>6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</h2><p><img src="../img/deployment.jpg" alt="" title="修改配置"><br>repo值是在仓库里的右下角<br><img src="../img/github.jpg" alt="" title="地址"></p>
+<h2 id="7-安装扩展"><a href="#7-安装扩展" class="headerlink" title="7.安装扩展"></a>7.安装扩展</h2><p>①打开myblog文件夹，单击右键+shift。点击“在此处执行命令窗口”</p>
+<p>②安装扩展<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>③生成静态页面，发布到GitHub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<p>④访问地址 http://用户名.github.io</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cjdzj5rq00001qojdr0qi2ajr" class="article-share-link">Teilen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/02/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Älter</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archiv</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/02/">February 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">letzter Beitrag</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/02/22/hexo/">基于hexo+github博客的搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2018/02/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 许婷婷<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
