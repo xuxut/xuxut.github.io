@@ -33,13 +33,13 @@
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/addkey.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/dkeys.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/success.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/02/22/img/login.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/deployment.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/github.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/img/login.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/error.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/re.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/resuccess.jpg">
-<meta property="og:updated_time" content="2018-02-23T12:33:13.701Z">
+<meta property="og:updated_time" content="2018-02-23T12:39:11.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo+github博客的搭建">
 <meta name="twitter:description" content="介绍一下基于hexo+github博客的搭建（很基础）。 1.建立空文件夹任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。比如（我自己的myblog）： 2.安装node检测node是否已安装:打开myblog，按住shift+鼠标右键，输入以下命令1$ node -v 若没有，请自行安装 3.安装hexo安装hexo之前必须确保已安装node。之后执行以下代码①安装hexo1$ n">
@@ -165,12 +165,11 @@
 <p>⑧登录GitHub，打开首页的右下角仓库。<br><img src="../img/in.jpg" alt="" title="登录"><br><img src="../img/addkey.jpg" alt="" title="添加密匙"><br><img src="../img/dkeys.jpg" alt="" title="设置密匙"></p>
 <p>⑨测试添加ssh是否成功。<br>出现(yes/no)，输入yes。<br>若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
 <p><img src="../img/success.jpg" alt="" title="成功"></p>
-<p>⑩连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><img src="../img/login.jpg" alt="" title="验证用户"></p>
 <h2 id="6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><a href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。" class="headerlink" title="6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。"></a>6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</h2><p><img src="../img/deployment.jpg" alt="" title="修改配置"><br>repo值是在仓库里的右下角<br><img src="../img/github.jpg" alt="" title="地址"></p>
 <h2 id="7-安装扩展"><a href="#7-安装扩展" class="headerlink" title="7.安装扩展"></a>7.安装扩展</h2><p>①打开myblog文件夹，单击右键+shift。点击“在此处执行命令窗口”</p>
 <p>②安装扩展（hexo部署）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
 <p>③生成静态页面，发布到GitHub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>成功了就访问地址 http://用户名.github.io，可以看见页面了</p>
+<p>④连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><img src="../img/login.jpg" alt="" title="验证用户"><br>成功了就访问地址 http://用户名.github.io，可以看见页面了</p>
 <p>若此处出错，则修改地址，运行以下代码：（在git bash中执行）<br><img src="../img/error.jpg" alt="" title="出错"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git remote add origin git@github.com:用户名/用户名.github.io.git</span><br></pre></td></tr></table></figure></p>
 <p>打开myblog下的_config.yml，修改repo<br><img src="../img/re.jpg" alt="" title="地址"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
@@ -179,7 +178,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cjdzx3nz80004tsjdsutij4tk" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cjdzxbb7u00022kjdvckljr7p" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
