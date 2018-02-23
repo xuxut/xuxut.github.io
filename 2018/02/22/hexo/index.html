@@ -39,7 +39,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/error.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/re.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/02/22/img/resuccess.jpg">
-<meta property="og:updated_time" content="2018-02-23T12:16:46.125Z">
+<meta property="og:updated_time" content="2018-02-23T12:33:13.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于hexo+github博客的搭建">
 <meta name="twitter:description" content="介绍一下基于hexo+github博客的搭建（很基础）。 1.建立空文件夹任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。比如（我自己的myblog）： 2.安装node检测node是否已安装:打开myblog，按住shift+鼠标右键，输入以下命令1$ node -v 若没有，请自行安装 3.安装hexo安装hexo之前必须确保已安装node。之后执行以下代码①安装hexo1$ n">
@@ -153,7 +153,7 @@
 <p>③检查是否有.ssh的文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
 <p>若以前没有.ssh文件夹，则显示：<br><img src="../img/none.jpg" alt="" title="没有.ssh"></p>
 <p>④生成密匙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure></p>
-<p>此处填写自己的邮箱<br>连续三个回车，直到出现(yes/no)，输入yes。<br>可以看到创建了一个.ssh的文件夹（包含id_rsa和id_rsa.pub两个文件），并生成密匙。<br>（两个文件存储路径默认在图中所示，不同电脑有所不同）<br><img src="../img/key.jpg" alt="" title="生成密匙"></p>
+<p>此处填写自己的邮箱<br>连续三个回车<br>可以看到创建了一个.ssh的文件夹（包含id_rsa和id_rsa.pub两个文件），并生成密匙。<br>（两个文件存储路径默认在图中所示，不同电脑有所不同）<br><img src="../img/key.jpg" alt="" title="生成密匙"></p>
 <p>④再次检查.ssh文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
 <p><img src="../img/ssh.jpg" alt="" title="进入.ssh"></p>
 <p>⑤进入ssh文件夹，输入ls，出现id_rsa id_rsa.pub，说明生成密匙成功。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br></pre></td></tr></table></figure></p>
@@ -163,7 +163,7 @@
 <p>⑦再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
 <p><img src="../img/add.jpg" alt="" title="添加生成的SSH key到ssh-agent"></p>
 <p>⑧登录GitHub，打开首页的右下角仓库。<br><img src="../img/in.jpg" alt="" title="登录"><br><img src="../img/addkey.jpg" alt="" title="添加密匙"><br><img src="../img/dkeys.jpg" alt="" title="设置密匙"></p>
-<p>⑨测试添加ssh是否成功。若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<p>⑨测试添加ssh是否成功。<br>出现(yes/no)，输入yes。<br>若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
 <p><img src="../img/success.jpg" alt="" title="成功"></p>
 <p>⑩连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><img src="../img/login.jpg" alt="" title="验证用户"></p>
 <h2 id="6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><a href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。" class="headerlink" title="6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。"></a>6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</h2><p><img src="../img/deployment.jpg" alt="" title="修改配置"><br>repo值是在仓库里的右下角<br><img src="../img/github.jpg" alt="" title="地址"></p>
@@ -179,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cjdzwflqa0007swjd47zgshvy" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cjdzx3nz80004tsjdsutij4tk" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
