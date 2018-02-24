@@ -102,7 +102,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一个帖子中的设置-md"><a href="#一个帖子中的设置-md" class="headerlink" title="一个帖子中的设置(.md)"></a>一个帖子中的设置(.md)</h2><p><img src="./img/themedes.jpg" alt="" title="每个帖子的设置"><br>
+        <h2 id="一个帖子中的设置-md"><a href="#一个帖子中的设置-md" class="headerlink" title="一个帖子中的设置(.md)"></a>一个帖子中的设置(.md)</h2><p><img src="/2018/02/23/themedes/themedes.jpg" alt="" title="每个帖子的设置"><br></p>
         
           <p class="article-more-link">
             <a href="/2018/02/23/themedes/#more">Read More</a>
@@ -111,7 +111,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/themedes/" data-id="cje0o35uv000878jd9yllj8ft" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/23/themedes/" data-id="cje0v4j1r000gjgjdd9d2coes" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -142,7 +142,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/02/23/editor/">介绍内容的编写</a>
+      <a class="article-title" href="/2018/02/23/editor/">内容的编写和图片引用</a>
     </h1>
   
 
@@ -161,7 +161,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>介绍一下基于hexo+github博客内容的编写。</p>
+        <p>介绍一下基于hexo+github博客内容的编写与图片引用出现的问题。</p>
         
           <p class="article-more-link">
             <a href="/2018/02/23/editor/#more">Read More</a>
@@ -170,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/editor/" data-id="cje0o35u4000078jdo2a1fwk8" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/23/editor/" data-id="cje0v4j0p0005jgjdstwwukbv" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -229,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/23/theme/" data-id="cje0o35us000778jdc4e4vtxf" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/23/theme/" data-id="cje0v4j0c0002jgjd2200vtmw" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -280,53 +280,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>介绍一下基于hexo+github博客的搭建（很基础）。</p>
-<h2 id="1-建立空文件夹"><a href="#1-建立空文件夹" class="headerlink" title="1.建立空文件夹"></a>1.建立空文件夹</h2><p>任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。<br>比如（我自己的myblog）：<br><img src="../img/blank.jpg" alt="" title="目录"></p>
-<h2 id="2-安装node"><a href="#2-安装node" class="headerlink" title="2.安装node"></a>2.安装node</h2><h3 id="检测node是否已安装"><a href="#检测node是否已安装" class="headerlink" title="检测node是否已安装:"></a>检测node是否已安装:</h3><p>打开myblog，按住shift+鼠标右键，输入以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/node.jpg" alt="" title="安装node"><br>若没有，请自行安装</p>
-<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h2><h3 id="安装hexo之前必须确保已安装node。之后执行以下代码"><a href="#安装hexo之前必须确保已安装node。之后执行以下代码" class="headerlink" title="安装hexo之前必须确保已安装node。之后执行以下代码"></a>安装hexo之前必须确保已安装node。之后执行以下代码</h3><p>①安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
-<p>正在安装中…<br><img src="../img/hexo.jpg" alt="" title="安装hexo"><br>安装成功！！！<br><img src="../img/hexos.jpg" alt="" title="安装hexo成功"></p>
-<p>②初始化hexo，生成一些文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
-<p>③安装所需要的组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
-<p>④生成静态页面，并部署到页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/hg.jpg" alt="" title="生成静态页面"></p>
-<p>⑤打开服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/hs.jpg" alt="" title="打开服务器"></p>
-<p>⑥浏览器地址栏输入localhost:4000，可以看到本地博客。且在本地修改内容也可以。</p>
-<h2 id="4-建立GitHub仓库"><a href="#4-建立GitHub仓库" class="headerlink" title="4.建立GitHub仓库"></a>4.建立GitHub仓库</h2><p>首先申请GitHub账号，如何申请自己网上搜索。<br>进入GitHub，<br><img src="../img/createg.jpg" alt="" title="建立"><br><img src="../img/newgithub.jpg" alt="" title="建立新仓库"></p>
-<h2 id="5-将本地博客连入GitHub仓库"><a href="#5-将本地博客连入GitHub仓库" class="headerlink" title="5.将本地博客连入GitHub仓库"></a>5.将本地博客连入GitHub仓库</h2><p>①安装git<br>在空白区域单击右键，若出现以下内容，说明电脑已安装git。<br>若没有，请自己安装<br><img src="../img/git.jpg" alt="" title="安装git"></p>
-<p>②设置用户名和邮箱<br>在myblog文件夹中点击右键，点击Git Base Here<br>输入自己的用户名和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
-<p><img src="../img/uname.jpg" alt="" title="设置用户名和邮箱"></p>
-<p>③检查是否有.ssh的文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
-<p>若以前没有.ssh文件夹，则显示：<br><img src="../img/none.jpg" alt="" title="没有.ssh"></p>
-<p>④生成密匙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure></p>
-<p>此处填写自己的邮箱<br>连续三个回车<br>可以看到创建了一个.ssh的文件夹（包含id_rsa和id_rsa.pub两个文件），并生成密匙。<br>（两个文件存储路径默认在图中所示，不同电脑有所不同）<br><img src="../img/key.jpg" alt="" title="生成密匙"></p>
-<p>④再次检查.ssh文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/ssh.jpg" alt="" title="进入.ssh"></p>
-<p>⑤进入ssh文件夹，输入ls，出现id_rsa id_rsa.pub，说明生成密匙成功。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/ls.jpg" alt="" title="文件存在"></p>
-<p>⑥输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/eval.jpg" alt="" title="添加密匙到ssh-agent"></p>
-<p>⑦再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/add.jpg" alt="" title="添加生成的SSH key到ssh-agent"></p>
-<p>⑧登录GitHub，打开首页的右下角仓库。<br><img src="../img/in.jpg" alt="" title="登录"><br><img src="../img/addkey.jpg" alt="" title="添加密匙"><br><img src="../img/dkeys.jpg" alt="" title="设置密匙"></p>
-<p>⑨测试添加ssh是否成功。<br>出现(yes/no)，输入yes。<br>若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
-<p><img src="../img/success.jpg" alt="" title="成功"></p>
-<h2 id="6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><a href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。" class="headerlink" title="6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。"></a>6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</h2><p><img src="../img/deployment.jpg" alt="" title="修改配置"><br>repo值是在仓库里的右下角<br><img src="../img/github.jpg" alt="" title="地址"></p>
-<h2 id="7-安装扩展"><a href="#7-安装扩展" class="headerlink" title="7.安装扩展"></a>7.安装扩展</h2><p>①打开myblog文件夹，单击右键+shift。点击“在此处执行命令窗口”</p>
-<p>②安装扩展（hexo部署）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
-<p>③生成静态页面，发布到GitHub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
-<p>④连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><img src="../img/login.jpg" alt="" title="验证用户"><br>成功了就访问地址 http://用户名.github.io，可以看见页面了</p>
-<p>若此处出错，则修改地址，运行以下代码：（在git bash中执行）<br><img src="../img/error.jpg" alt="" title="出错"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br><span class="line">$ git remote add origin git@github.com:用户名/用户名.github.io.git</span><br></pre></td></tr></table></figure></p>
-<p>打开myblog下的_config.yml，修改repo<br><img src="../img/re.jpg" alt="" title="地址"></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-<p><img src="../img/resuccess.jpg" alt="" title="修改地址后成功"><br>访问地址 http://用户名.github.io</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2018/02/22/hexo/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cje0o35up000678jda4co4kgh" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/22/hexo/" data-id="cje0v4j060001jgjdbaxsm7w4" class="article-share-link">分享</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
@@ -372,7 +334,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br></p>
         
           <p class="article-more-link">
             <a href="/2018/02/22/hello-world/#more">Read More</a>
@@ -381,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/02/22/hello-world/" data-id="cje0o35uf000278jdw00s47zk" class="article-share-link">分享</a>
+      <a data-url="http://yoursite.com/2018/02/22/hello-world/" data-id="cje0v4izz0000jgjdvysd3j0e" class="article-share-link">分享</a>
       
       
     </footer>
