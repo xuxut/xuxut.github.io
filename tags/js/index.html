@@ -6,22 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>懒加载与预加载 | 小亭子的博客</title>
+  <title>Tag: js | 小亭子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒加载和预加载是开发中常用的设计模式，实现方式也有很多，在项目中我使用了懒加载，在这里简单记录一下。">
-<meta name="keywords" content="html,javascipt,jquery">
-<meta property="og:type" content="article">
-<meta property="og:title" content="懒加载与预加载">
-<meta property="og:url" content="http://yoursite.com/2018/03/01/07lazyload/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="小亭子的博客">
+<meta property="og:url" content="http://yoursite.com/tags/js/index.html">
 <meta property="og:site_name" content="小亭子的博客">
-<meta property="og:description" content="懒加载和预加载是开发中常用的设计模式，实现方式也有很多，在项目中我使用了懒加载，在这里简单记录一下。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/03/01/07lazyload/src.jpg">
-<meta property="og:updated_time" content="2018-03-01T09:43:05.340Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="懒加载与预加载">
-<meta name="twitter:description" content="懒加载和预加载是开发中常用的设计模式，实现方式也有很多，在项目中我使用了懒加载，在这里简单记录一下。">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/01/07lazyload/src.jpg">
+<meta name="twitter:title" content="小亭子的博客">
   
     <link rel="alternative" href="/atom.xml" title="小亭子的博客" type="application/atom+xml">
   
@@ -161,101 +154,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-07lazyload" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      懒加载与预加载
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/03/08/面试题汇总/" class="archive-article-date">
+  	<time datetime="2018-03-08T10:59:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/03/08/面试题汇总/">面试题汇总</a>
     </h1>
   
 
-        
-        <a href="/2018/03/01/07lazyload/" class="archive-article-date">
-  	<time datetime="2018-03-01T08:32:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>懒加载和预加载是开发中常用的设计模式，实现方式也有很多，在项目中我使用了懒加载，在这里简单记录一下。</p>
-<a id="more"></a>
-<h1 id="1-懒加载"><a href="#1-懒加载" class="headerlink" title="1.懒加载"></a>1.懒加载</h1><h3 id="1-1什么是懒加载？"><a href="#1-1什么是懒加载？" class="headerlink" title="1.1什么是懒加载？"></a>1.1什么是懒加载？</h3><blockquote>
-<p>懒加载通俗的讲就是延迟加载。图片懒加载就是当页面滚动到可视区域时，图片才显示出来。</p>
-</blockquote>
-<h3 id="1-2-懒加载的原理。"><a href="#1-2-懒加载的原理。" class="headerlink" title="1.2.懒加载的原理。"></a>1.2.懒加载的原理。</h3><blockquote>
-<p>页面中的img，如果没有src属性，浏览器就不会去下载图片。把页面中所有的图片路径都设置为空（或者用一个小的图片代替（1px*1px）），当滚动到可视区域的时候才设置图片正确的路径。图片真正的路径用自定义属性保存，比如data-src.</p>
-</blockquote>
-<h3 id="1-3-为什么要使用懒加载，懒加载的优点？"><a href="#1-3-为什么要使用懒加载，懒加载的优点？" class="headerlink" title="1.3.为什么要使用懒加载，懒加载的优点？"></a>1.3.为什么要使用懒加载，懒加载的优点？</h3><blockquote>
-<p>比如商城网站，有很多内容和图片，数量多而且比较大，如果页面一次性加载的话，有时候会等很久。<br>优点：页面加载速度快、可以减轻服务器的压力、节约了流量,用户体验好。目的是作为服务器前端的优化，减少请求数或延迟请求数。</p>
-</blockquote>
-<h3 id="1-4-懒加载的实现步骤"><a href="#1-4-懒加载的实现步骤" class="headerlink" title="1.4.懒加载的实现步骤"></a>1.4.懒加载的实现步骤</h3><blockquote>
-<p>（1）将img的src=””<br>（2）为img添加data-src=”图片真正路径”<br>（3）当触发某些条件时，自动改变该区域的图片的src属性为真实的地址<br><img src="./src.jpg" alt="" title="设置图片路径"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">img = $(&apos;img&apos;);</span><br><span class="line">// 页面刷新时首先调用一次加载函数</span><br><span class="line">lazyload();</span><br><span class="line">// 注册滚动监听函数</span><br><span class="line">$(window).scroll(lazyload);</span><br><span class="line">//懒加载函数</span><br><span class="line">function lazyload()&#123;</span><br><span class="line">   for(var i=0;i&lt;img.length;i++)&#123;</span><br><span class="line">        //当前图片相对于页面顶部的距离  &lt;= 可视区域 + 滚动条距离距离顶部的距离 -400。</span><br><span class="line">        if(img.eq(i).offset().top &lt; parseInt($(window).height()) + parseInt($(window).scrollTop())-400) &#123;</span><br><span class="line">        // 如果每个img的src为空的话，给每个img的src赋值为data-src的值</span><br><span class="line">           if(img.eq(i).attr(&quot;src&quot;) == &quot;&quot;) &#123;</span><br><span class="line">               var src = img.eq(i).attr(&quot;data-src&quot;);</span><br><span class="line">               img.eq(i).attr(&quot;src&quot;, src);</span><br><span class="line">               n = i + 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h3 id="1-5懒加载的实现方式"><a href="#1-5懒加载的实现方式" class="headerlink" title="1.5懒加载的实现方式"></a>1.5懒加载的实现方式</h3><blockquote>
-<p>1.定时器延迟加载<br>2.符合某些条件才加载<br>3.可视区加载，距用户看到某个图片一定距离时开始加载，保证用户下拉时可以看到图片，监控滚动条来实现。</p>
-</blockquote>
-<h1 id="2-预加载"><a href="#2-预加载" class="headerlink" title="2.预加载"></a>2.预加载</h1><h3 id="2-1什么是预加载？"><a href="#2-1什么是预加载？" class="headerlink" title="2.1什么是预加载？"></a>2.1什么是预加载？</h3><blockquote>
-<p>提前加载图片，当用户需要查看时可直接从本地缓存中渲染。</p>
-</blockquote>
-<h3 id="2-2为什么要使用预加载，预加载的优点？"><a href="#2-2为什么要使用预加载，预加载的优点？" class="headerlink" title="2.2为什么要使用预加载，预加载的优点？"></a>2.2为什么要使用预加载，预加载的优点？</h3><blockquote>
-<p>图片预先加载到浏览器中，访问者便可顺利地在你的网站上冲浪，并享受到极快的加载速度。这对图片画廊及图片占据很大比例的网站来说十分有利，它保证了图片快速、无缝地发布，也可帮助用户在浏览你网站内容时获得更好的用户体验。<br>优点：牺牲服务器前端性能，换取更好的用户体验，这样可以使用户的操作得到最快的反映。</p>
-</blockquote>
-<h3 id="2-3预加载的实现方式"><a href="#2-3预加载的实现方式" class="headerlink" title="2.3预加载的实现方式"></a>2.3预加载的实现方式</h3><blockquote>
-<p>new Image();<br><a href="http://web.jobbole.com/86785/" target="_blank" rel="noopener">http://web.jobbole.com/86785/</a></p>
-</blockquote>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">html</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">javascipt</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">jquery</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -268,113 +208,17 @@
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/01/07lazyload/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/03/04/08vue/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue重构项目遇到的问题
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/02/27/06php/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">阿里云上传数据库与后台书写</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -397,9 +241,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
