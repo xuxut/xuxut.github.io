@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tags | 小亭子的博客</title>
+  <title>&#39;如何存储对象（深拷贝）&#39; | 小亭子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Tags">
-<meta property="og:url" content="http://yoursite.com/tags/index.html">
+  <meta name="description" content="12JSON.parse(JSON.stringify(对象)):深拷贝：会抛弃对象的constructor。也就是深拷贝之后，不管这个对象原来的构造函数是什么，在深拷贝之后都会变成Object，遇到循环引用（自己引用自己）也无法处理 1Object.assign(&amp;#123;&amp;#125;,对象)：深拷贝一级属性，包括prototype，若属性是引用类型，需要递归复制。 浅拷贝指向同一地址，修改">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="&#39;如何存储对象（深拷贝）&#39;">
+<meta property="og:url" content="http://yoursite.com/2018/03/08/如何存储对象/index.html">
 <meta property="og:site_name" content="小亭子的博客">
+<meta property="og:description" content="12JSON.parse(JSON.stringify(对象)):深拷贝：会抛弃对象的constructor。也就是深拷贝之后，不管这个对象原来的构造函数是什么，在深拷贝之后都会变成Object，遇到循环引用（自己引用自己）也无法处理 1Object.assign(&amp;#123;&amp;#125;,对象)：深拷贝一级属性，包括prototype，若属性是引用类型，需要递归复制。 浅拷贝指向同一地址，修改">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-23T08:39:22.662Z">
+<meta property="og:updated_time" content="2018-03-08T09:46:35.791Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tags">
+<meta name="twitter:title" content="&#39;如何存储对象（深拷贝）&#39;">
+<meta name="twitter:description" content="12JSON.parse(JSON.stringify(对象)):深拷贝：会抛弃对象的constructor。也就是深拷贝之后，不管这个对象原来的构造函数是什么，在深拷贝之后都会变成Object，遇到循环引用（自己引用自己）也无法处理 1Object.assign(&amp;#123;&amp;#125;,对象)：深拷贝一级属性，包括prototype，若属性是引用类型，需要递归复制。 浅拷贝指向同一地址，修改">
   
     <link rel="alternative" href="/atom.xml" title="小亭子的博客" type="application/atom+xml">
   
@@ -155,27 +159,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="tags-" class="article article-type-tags " itemscope itemprop="blogPost">
+            <article id="post-如何存储对象" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Tags
+      &#39;如何存储对象（深拷贝）&#39;
     </h1>
   
 
         
-        <a href="/tags/index.html" class="archive-article-date">
-  	<time datetime="2018-02-23T08:41:42.994Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+        <a href="/2018/03/08/如何存储对象/" class="archive-article-date">
+  	<time datetime="2018-03-08T08:13:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">JSON.parse(JSON.stringify(对象)):</span><br><span class="line">深拷贝：会抛弃对象的constructor。也就是深拷贝之后，不管这个对象原来的构造函数是什么，在深拷贝之后都会变成Object，遇到循环引用（自己引用自己）也无法处理</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Object.assign(&#123;&#125;,对象)：深拷贝一级属性，包括prototype，若属性是引用类型，需要递归复制。</span><br></pre></td></tr></table></figure>
+<h2 id="浅拷贝指向同一地址，修改属性值会影响另一个"><a href="#浅拷贝指向同一地址，修改属性值会影响另一个" class="headerlink" title="浅拷贝指向同一地址，修改属性值会影响另一个"></a>浅拷贝指向同一地址，修改属性值会影响另一个</h2>
       
 
       
@@ -204,7 +211,29 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/前端//" class="article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -254,7 +283,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/tags/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/08/如何存储对象/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,6 +295,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/04/使用less定制bootstrap的过程/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">使用less定制bootstrap的过程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -316,7 +355,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
