@@ -17,13 +17,13 @@
 <meta property="og:description" content="本文描述的是在用vue重构项目时所遇到的一些问题。在此记录一下。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/父与子.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/父与子(ref">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/父与子($parent">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与父(子">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与父(父">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子(子1">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子(子2">
-<meta property="og:updated_time" content="2018-03-12T01:21:44.653Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/父与子ref.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/父与子$parent.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与父子.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与父父.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子子1.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子子2.jpg">
+<meta property="og:updated_time" content="2018-03-12T01:29:27.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue重构项目遇到的问题">
 <meta name="twitter:description" content="本文描述的是在用vue重构项目时所遇到的一些问题。在此记录一下。">
@@ -198,8 +198,8 @@
 <blockquote>
 <p>window.location.reload()是刷新整个页面，我想只刷新某部分的router-view<br>this.$router.go(0);刷新整个页面</p>
 </blockquote>
-<h2 id="4-关于通信问题。"><a href="#4-关于通信问题。" class="headerlink" title="4.关于通信问题。"></a>4.关于通信问题。</h2><p>(1)父与子：<br> ①<img src="./父与子.jpg" alt=""><br> ②<img src="./父与子(ref" alt="">.jpg)<br> ③<img src="./父与子($parent" alt="">.jpg)<br>(2)子与父：<br>子：<br> <img src="./子与父(子" alt="">.jpg)<br>父：<br> <img src="./子与父(父" alt="">.jpg)</p>
-<p>(3)子与子<br>子1（传递）:<br> <img src="./子与子(子1" alt="">.jpg)<br>子2（绑定）：<br> <img src="./子与子(子2" alt="">.jpg)</p>
+<h2 id="4-关于通信问题。"><a href="#4-关于通信问题。" class="headerlink" title="4.关于通信问题。"></a>4.关于通信问题。</h2><p>(1)父与子：<br>① props<br><img src="./父与子.jpg" alt=""><br>② $refs<br><img src="./父与子ref.jpg" alt=""><br>③ $parent<br><img src="./父与子$parent.jpg" alt=""><br>(2)子与父：<br>子：$emit<br> <img src="./子与父子.jpg" alt=""><br>父：<br> <img src="./子与父父.jpg" alt=""></p>
+<p>(3)子与子bus<br>子1（传递$emit）:<br> <img src="./子与子子1.jpg" alt=""><br>子2（绑定$on）：<br> <img src="./子与子子2.jpg" alt=""></p>
 
       
 
@@ -460,6 +460,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
@@ -469,10 +473,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
