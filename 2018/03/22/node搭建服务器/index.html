@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>关于此主题内容的说明 | 小亭子的博客</title>
+  <title>node搭建服务器 | 小亭子的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一篇文章中的设置(.md)">
-<meta name="keywords" content="hexo">
+  <meta name="description" content="使用node搭建一个简单的服务器">
+<meta name="keywords" content="node">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于此主题内容的说明">
-<meta property="og:url" content="http://yoursite.com/2018/02/23/05themedes/index.html">
+<meta property="og:title" content="node搭建服务器">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/node搭建服务器/index.html">
 <meta property="og:site_name" content="小亭子的博客">
-<meta property="og:description" content="一篇文章中的设置(.md)">
+<meta property="og:description" content="使用node搭建一个简单的服务器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/02/23/05themedes/img/themedes.jpg">
-<meta property="og:updated_time" content="2018-03-04T05:59:55.508Z">
+<meta property="og:updated_time" content="2018-03-22T03:51:18.151Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于此主题内容的说明">
-<meta name="twitter:description" content="一篇文章中的设置(.md)">
-<meta name="twitter:image" content="http://yoursite.com/2018/02/23/05themedes/img/themedes.jpg">
+<meta name="twitter:title" content="node搭建服务器">
+<meta name="twitter:description" content="使用node搭建一个简单的服务器">
   
     <link rel="alternative" href="/atom.xml" title="小亭子的博客" type="application/atom+xml">
   
@@ -161,29 +159,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-05themedes" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-node搭建服务器" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      关于此主题内容的说明
+      node搭建服务器
     </h1>
   
 
         
-        <a href="/2018/02/23/05themedes/" class="archive-article-date">
-  	<time datetime="2018-02-23T08:54:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-23</time>
+        <a href="/2018/03/22/node搭建服务器/" class="archive-article-date">
+  	<time datetime="2018-03-22T01:32:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一篇文章中的设置-md"><a href="#一篇文章中的设置-md" class="headerlink" title="一篇文章中的设置(.md)"></a>一篇文章中的设置(.md)</h2><p><img src="./img/themedes.jpg" alt="" title="每个帖子的设置"><br><a id="more"></a></p>
-<h3 id="1-标签"><a href="#1-标签" class="headerlink" title="1.标签"></a>1.标签</h3><p>标题下的分类与最下面的标签，在title中设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: xxxxxx</span><br><span class="line">categories:</span><br><span class="line">- web</span><br><span class="line">tags:</span><br><span class="line">- hexo</span><br><span class="line">---</span><br></pre></td></tr></table></figure></p>
-<h3 id="2-按钮Read-More"><a href="#2-按钮Read-More" class="headerlink" title="2.按钮Read More"></a>2.按钮Read More</h3><p>在哪里设置按钮，就在哪里断开内容，下面写的内容就在链接里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`&lt;!-- more --&gt;`</span><br></pre></td></tr></table></figure></p>
+        <p>使用node搭建一个简单的服务器<br><a id="more"></a><br>1.新建文件夹，在里面再创建一个文件夹server<br>2.在server里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init    创建一个package.json</span><br><span class="line">npm i --save express(npm i -S express)  安装express</span><br></pre></td></tr></table></figure></p>
+<p>3.创建app.js(index.js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;);</span><br><span class="line">let app = new express();</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure></p>
+<p>4.打开服务器<br>安装：npm i -g supervisor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd:supervisor app|node app</span><br></pre></td></tr></table></figure></p>
+<p>地址栏localhost:3000<br>5.全局安装隧道服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd:npm i -g ngrok</span><br><span class="line">任意位置:ngrok http 3000</span><br></pre></td></tr></table></figure></p>
+<p>或者网页安装（<a href="http://ngrok.com/download）" target="_blank" rel="noopener">http://ngrok.com/download）</a><br>C:/ngrok.exe<br>之后在C盘web-01里面将ngrok打开，并解压到桌面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:/ cmd:ngrok.exe http 3000</span><br></pre></td></tr></table></figure></p>
+<p>6.server/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S wechat</span><br></pre></td></tr></table></figure></p>
+<p>7.app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const wechat = require(&quot;wechat&quot;);</span><br><span class="line">let config = &#123;</span><br><span class="line">	appid:&apos;&apos;,</span><br><span class="line">	token:&apos;&apos;,</span><br><span class="line">	encodingAESKey:&apos;&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>8.微信公众平台-登录个人订阅号账号<br>开发-基本配置<br>复制AppId,粘贴为config的AppID值<br>9.开发-基本配置<br>服务器(未启用)-修改配置<br>token:weixin<br>encodingAESKey:随机生成<br>10.复制ngrok生成的隧道地址，填写到公众平台的url处<br>11.app.js<br>app.get(‘/‘,wechat(config,(req,res)=&gt;{<br>    let message = req.weixin<br>    console.log(message)</p>
+<p>}))</p>
+<p>12.开发-基本配置<br>服务器配置（未启用）-修改配置<br>提交</p>
+<p>13.启用开发者模式<br>服务器配置（已启用）</p>
+<p>14.在公众号中输入消息，后台可以看到。<br>15.在公众号中输入消息，可以自动回复。<br>返回响应：res.reply(“收到”)</p>
+<p>16.模拟编辑模式的关键词半匹配回复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;);</span><br><span class="line">const wechat = require(&quot;wechat&quot;);</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">	appid:&apos;wx8c42dec7e3b4dc1f&apos;,</span><br><span class="line">	token:&apos;weixin&apos;,</span><br><span class="line">	encodingAESKey:&apos;utC2otCu4vW0F86XpHIQZ9kx71I9fcltwDvbGFNk3Il&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let app = new express();</span><br><span class="line"></span><br><span class="line">app.post(&apos;/&apos;,wechat(config,(req,res)=&gt;&#123;</span><br><span class="line">	let message = req.weixin </span><br><span class="line">	console.log(message.Content)</span><br><span class="line">	res.reply(&quot;收到&quot;)</span><br><span class="line"></span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -218,7 +226,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">node</a>
         		</li>
       		
 		</ul>
@@ -230,7 +238,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/博客开发//" class="article-tag-list-link color5">博客开发</a>
+        			<a href="/categories/后端//" class="article-tag-list-link color3">后端</a>
         		</li>
       		
 		</ul>
@@ -285,7 +293,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/02/23/05themedes/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/03/22/node搭建服务器/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -299,18 +307,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/02/27/06php/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          阿里云上传数据库与后台书写
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/02/23/04editor/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">内容的编写和图片引用</div>
+    <a href="/2018/03/14/面试题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">面试题记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
