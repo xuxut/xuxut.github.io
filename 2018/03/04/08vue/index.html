@@ -23,10 +23,11 @@
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与父父.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子子1.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/子与子子2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/环境.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/搭建.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/index.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/util.jpg">
-<meta property="og:updated_time" content="2018-03-17T06:59:02.319Z">
+<meta property="og:image" content="http://yoursite.com/2018/03/04/08vue/vue-router-nav.jpg">
+<meta property="og:updated_time" content="2018-03-26T09:35:49.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue重构项目遇到的问题以及vue项目打包">
 <meta name="twitter:description" content="本文描述的是在用vue重构项目时所遇到的一些问题。在此记录一下。">
@@ -203,8 +204,12 @@
 </blockquote>
 <h2 id="4-关于通信问题。"><a href="#4-关于通信问题。" class="headerlink" title="4.关于通信问题。"></a>4.关于通信问题。</h2><p>(1)父与子：<br>① props<br><img src="./父与子.jpg" alt=""><br>② $refs<br><img src="./父与子ref.jpg" alt=""><br>③ $parent<br><img src="./父与子$parent.jpg" alt=""><br>(2)子与父：<br>子：$emit.事件<br> <img src="./子与父子.jpg" alt=""><br>父：标签中 @事件=””<br> <img src="./子与父父.jpg" alt=""></p>
 <p>(3)子与子bus<br>子1（传递$emit）:<br> <img src="./子与子子1.jpg" alt=""><br>子2（绑定$on）：<br> <img src="./子与子子2.jpg" alt=""></p>
-<h1 id="vue环境搭建"><a href="#vue环境搭建" class="headerlink" title="vue环境搭建"></a>vue环境搭建</h1><p><img src="./环境.jpg" alt=""></p>
+<h1 id="vue环境搭建"><a href="#vue环境搭建" class="headerlink" title="vue环境搭建"></a>vue环境搭建</h1><p><img src="./搭建.jpg" alt=""></p>
 <h1 id="vue项目打包"><a href="#vue项目打包" class="headerlink" title="vue项目打包"></a>vue项目打包</h1><p>1.config/index.js<br><img src="./index.jpg" alt=""><br>2.build/utils.js<br><img src="./util.jpg" alt=""><br>3.根目录下运行npm run build<br>4.完成后文件保存在根目录下的dist，需要打开服务器，才能打开index.html</p>
+<h1 id="vue-router的导航钩子"><a href="#vue-router的导航钩子" class="headerlink" title="vue-router的导航钩子"></a>vue-router的导航钩子</h1><p>1.全局导航钩子（前置守卫、后置钩子）<br>（1）全局前置守卫<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next)=&gt;&#123;</span><br><span class="line">	//do something</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">to:Route，代表要进入的目标，它是一个路由对象</span><br><span class="line">from:Route，代表当前正要离开的路由，同样也是一个路由对象</span><br><span class="line">next:Function，这是一个必须需要调用的方法，而具体的执行效果则依赖next方法调用的参数</span><br></pre></td></tr></table></figure></p>
+<p><img src="./vue-router-nav.jpg" alt=""><br>（2）全局后置钩子:不同于前置守卫，后置钩子没有next函数，也不会改变导航本身。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach((to,from)=&gt;&#123;</span><br><span class="line">	//do something</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>2.路由独享的钩子：在路由配置上直接定义的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cont router = new VueRouter(&#123;</span><br><span class="line">     routes:[</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;/file&apos;,</span><br><span class="line">		component:File,</span><br><span class="line">		beforeEnter:((to,from,next)=&gt;&#123;</span><br><span class="line">			//do something</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">     ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>3.组件内的导航钩子</p>
 
       
 
@@ -465,22 +470,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">javascipt</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">javascript</a>
               </li>
              
@@ -489,7 +478,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">node</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,6 +491,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">bootstrap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">node</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">javascipt</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
