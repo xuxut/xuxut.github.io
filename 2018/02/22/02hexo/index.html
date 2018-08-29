@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>基于hexo+github博客的搭建 | 小亭子的博客 | 跌倒了仍然可以继续前进！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FAA2D2">
+    
+    
+    <meta name="keywords" content="hexo">
+    <meta name="description" content="介绍一下基于hexo+github博客的搭建（很基础）。">
+<meta name="keywords" content="hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于hexo+github博客的搭建">
+<meta property="og:url" content="http://yoursite.com/2018/02/22/02hexo/index.html">
+<meta property="og:site_name" content="小亭子的博客">
+<meta property="og:description" content="介绍一下基于hexo+github博客的搭建（很基础）。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/blank.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/node.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/hexo.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/hexos.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/hg.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/hs.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/createg.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/newgithub.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/git.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/uname.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/none.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/key.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/ssh.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/ls.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/eval.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/add.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/in.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/addkey.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/dkeys.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/success.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/deployment.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/github.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/login.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/error.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/re.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/02/22/02hexo/resuccess.jpg">
+<meta property="og:updated_time" content="2018-08-29T08:40:38.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于hexo+github博客的搭建">
+<meta name="twitter:description" content="介绍一下基于hexo+github博客的搭建（很基础）。">
+<meta name="twitter:image" content="http://yoursite.com/2018/02/22/02hexo/blank.jpg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars2.githubusercontent.com/u/29862231?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小亭子</h5>
+          <a href="mailto:790791303@qq.com" title="790791303@qq.com" class="mail">790791303@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xuxut" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">基于hexo+github博客的搭建</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">基于hexo+github博客的搭建</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-02-22T05:32:49.000Z" itemprop="datePublished" class="page-time">
+  2018-02-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/博客开发/">博客开发</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-建立空文件夹"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.建立空文件夹</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-安装node"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.安装node</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#检测node是否已安装"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">检测node是否已安装:</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-安装hexo"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.安装hexo</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装hexo之前必须确保已安装node。之后执行以下代码"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装hexo之前必须确保已安装node。之后执行以下代码</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-建立GitHub仓库"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.建立GitHub仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-将本地博客连入GitHub仓库"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.将本地博客连入GitHub仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-安装扩展"><span class="post-toc-number">7.</span> <span class="post-toc-text">7.安装扩展</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-02hexo"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">基于hexo+github博客的搭建</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-02-22 13:32:49" datetime="2018-02-22T05:32:49.000Z"  itemprop="datePublished">2018-02-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/博客开发/">博客开发</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>介绍一下基于hexo+github博客的搭建（很基础）。</p>
+<a id="more"></a>
+<h2 id="1-建立空文件夹"><a href="#1-建立空文件夹" class="headerlink" title="1.建立空文件夹"></a>1.建立空文件夹</h2><p>任意地方建立空文件夹（自己找的到）来存放一些必要的子目录文件。<br>比如（我自己的myblog）：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./blank.jpg" alt="目录" title="">
+                </div>
+                <div class="image-caption">目录</div>
+            </figure></p>
+<h2 id="2-安装node"><a href="#2-安装node" class="headerlink" title="2.安装node"></a>2.安装node</h2><h3 id="检测node是否已安装"><a href="#检测node是否已安装" class="headerlink" title="检测node是否已安装:"></a>检测node是否已安装:</h3><p>打开myblog，按住shift+鼠标右键，输入以下命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node -v</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./node.jpg" alt="安装node" title="">
+                </div>
+                <div class="image-caption">安装node</div>
+            </figure>
+<p>若没有，请自行安装</p>
+<h2 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h2><h3 id="安装hexo之前必须确保已安装node。之后执行以下代码"><a href="#安装hexo之前必须确保已安装node。之后执行以下代码" class="headerlink" title="安装hexo之前必须确保已安装node。之后执行以下代码"></a>安装hexo之前必须确保已安装node。之后执行以下代码</h3><p>①安装hexo<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo</span><br></pre></td></tr></table></figure></p>
+<p>正在安装中…<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./hexo.jpg" alt="安装hexo" title="">
+                </div>
+                <div class="image-caption">安装hexo</div>
+            </figure><br>安装成功！！！<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./hexos.jpg" alt="安装hexo成功" title="">
+                </div>
+                <div class="image-caption">安装hexo成功</div>
+            </figure></p>
+<p>②初始化hexo，生成一些文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>③安装所需要的组件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install</span><br></pre></td></tr></table></figure></p>
+<p>④生成静态页面，并部署到页面<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./hg.jpg" alt="生成静态页面" title="">
+                </div>
+                <div class="image-caption">生成静态页面</div>
+            </figure>
+<p>⑤打开服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo s</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./hs.jpg" alt="打开服务器" title="">
+                </div>
+                <div class="image-caption">打开服务器</div>
+            </figure>
+<p>⑥浏览器地址栏输入localhost:4000，可以看到本地博客。且在本地修改内容也可以。</p>
+<h2 id="4-建立GitHub仓库"><a href="#4-建立GitHub仓库" class="headerlink" title="4.建立GitHub仓库"></a>4.建立GitHub仓库</h2><p>首先申请GitHub账号，如何申请自己网上搜索。<br>进入GitHub，<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./createg.jpg" alt="建立" title="">
+                </div>
+                <div class="image-caption">建立</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./newgithub.jpg" alt="建立新仓库" title="">
+                </div>
+                <div class="image-caption">建立新仓库</div>
+            </figure></p>
+<h2 id="5-将本地博客连入GitHub仓库"><a href="#5-将本地博客连入GitHub仓库" class="headerlink" title="5.将本地博客连入GitHub仓库"></a>5.将本地博客连入GitHub仓库</h2><p>①安装git<br>在空白区域单击右键，若出现以下内容，说明电脑已安装git。<br>若没有，请自己安装<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./git.jpg" alt="安装git" title="">
+                </div>
+                <div class="image-caption">安装git</div>
+            </figure></p>
+<p>②设置用户名和邮箱<br>在myblog文件夹中点击右键，点击Git Base Here<br>输入自己的用户名和邮箱<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name <span class="string">"xxx"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.email <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./uname.jpg" alt="设置用户名和邮箱" title="">
+                </div>
+                <div class="image-caption">设置用户名和邮箱</div>
+            </figure>
+<p>③检查是否有.ssh的文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<p>若以前没有.ssh文件夹，则显示：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./none.jpg" alt="没有.ssh" title="">
+                </div>
+                <div class="image-caption">没有.ssh</div>
+            </figure></p>
+<p>④生成密匙<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"xxxx@xx.com"</span></span><br></pre></td></tr></table></figure></p>
+<p>此处填写自己的邮箱<br>连续三个回车<br>可以看到创建了一个.ssh的文件夹（包含id_rsa和id_rsa.pub两个文件），并生成密匙。<br>（两个文件存储路径默认在图中所示，不同电脑有所不同）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./key.jpg" alt="生成密匙" title="">
+                </div>
+                <div class="image-caption">生成密匙</div>
+            </figure></p>
+<p>④再次检查.ssh文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> ~/.ssh</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./ssh.jpg" alt="进入.ssh" title="">
+                </div>
+                <div class="image-caption">进入.ssh</div>
+            </figure>
+<p>⑤进入ssh文件夹，输入ls，出现id_rsa id_rsa.pub，说明生成密匙成功。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./ls.jpg" alt="文件存在" title="">
+                </div>
+                <div class="image-caption">文件存在</div>
+            </figure>
+<p>⑥输入eval “$(ssh-agent -s)”，添加密钥到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./eval.jpg" alt="添加密匙到ssh-agent" title="">
+                </div>
+                <div class="image-caption">添加密匙到ssh-agent</div>
+            </figure>
+<p>⑦再输入ssh-add ~/.ssh/id_rsa，添加生成的SSH key到ssh-agent<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./add.jpg" alt="添加生成的SSH" title="">
+                </div>
+                <div class="image-caption">添加生成的SSH</div>
+            </figure>
+<p>⑧登录GitHub，打开首页的右下角仓库。<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./in.jpg" alt="登录" title="">
+                </div>
+                <div class="image-caption">登录</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./addkey.jpg" alt="添加密匙" title="">
+                </div>
+                <div class="image-caption">添加密匙</div>
+            </figure><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./dkeys.jpg" alt="设置密匙" title="">
+                </div>
+                <div class="image-caption">设置密匙</div>
+            </figure></p>
+<p>⑨测试添加ssh是否成功。<br>出现(yes/no)，输入yes。<br>若看到 Hi 后面是你的用户名，说明成功了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./success.jpg" alt="成功" title="">
+                </div>
+                <div class="image-caption">成功</div>
+            </figure>
+<h2 id="6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。"><a href="#6-配置Deployment，在myblog（最开始建立的文件夹）中，找到-config-yml文件，在末尾进行修改。" class="headerlink" title="6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。"></a>6.配置Deployment，在myblog（最开始建立的文件夹）中，找到_config.yml文件，在末尾进行修改。</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./deployment.jpg" alt="修改配置" title="">
+                </div>
+                <div class="image-caption">修改配置</div>
+            </figure>
+<p>repo值是在仓库里的右下角<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./github.jpg" alt="地址" title="">
+                </div>
+                <div class="image-caption">地址</div>
+            </figure></p>
+<h2 id="7-安装扩展"><a href="#7-安装扩展" class="headerlink" title="7.安装扩展"></a>7.安装扩展</h2><p>①打开myblog文件夹，单击右键+shift。点击“在此处执行命令窗口”</p>
+<p>②安装扩展（hexo部署）<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<p>③生成静态页面，发布到GitHub<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g </span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure></p>
+<p>④连接成功后会出现一个弹出框。<br>输入自己的用户名/邮箱，密码即可<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./login.jpg" alt="验证用户" title="">
+                </div>
+                <div class="image-caption">验证用户</div>
+            </figure><br>成功了就访问地址 http://用户名.github.io，可以看见页面了</p>
+<p>若此处出错，则修改地址，运行以下代码：（在git bash中执行）<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./error.jpg" alt="出错" title="">
+                </div>
+                <div class="image-caption">出错</div>
+            </figure><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:用户名/用户名.github.io.git</span><br></pre></td></tr></table></figure></p>
+<p>打开myblog下的_config.yml，修改repo<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./re.jpg" alt="地址" title="">
+                </div>
+                <div class="image-caption">地址</div>
+            </figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g</span><br><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="./resuccess.jpg" alt="修改地址后成功" title="">
+                </div>
+                <div class="image-caption">修改地址后成功</div>
+            </figure>
+<p>访问地址 http://用户名.github.io</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-08-29T08:40:38.740Z" itemprop="dateUpdated">2018-08-29 16:40:38</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/02/22/02hexo/" target="_blank" rel="external">http://yoursite.com/2018/02/22/02hexo/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://avatars2.githubusercontent.com/u/29862231?v=4" alt="小亭子">
+            小亭子
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/22/02hexo/&title=《基于hexo+github博客的搭建》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/22/02hexo/&title=《基于hexo+github博客的搭建》 — 小亭子的博客&source=介绍一下基于hexo+github博客的搭建（很基础）。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/22/02hexo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于hexo+github博客的搭建》 — 小亭子的博客&url=http://yoursite.com/2018/02/22/02hexo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/22/02hexo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/02/23/03介绍主题的修改/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">介绍主题的修改</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/22/01hello-world/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hello World</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢你请我吃糖果~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小亭子 &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/02/22/02hexo/&title=《基于hexo+github博客的搭建》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/02/22/02hexo/&title=《基于hexo+github博客的搭建》 — 小亭子的博客&source=介绍一下基于hexo+github博客的搭建（很基础）。" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/22/02hexo/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《基于hexo+github博客的搭建》 — 小亭子的博客&url=http://yoursite.com/2018/02/22/02hexo/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/22/02hexo/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/02/22/02hexo/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '人去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

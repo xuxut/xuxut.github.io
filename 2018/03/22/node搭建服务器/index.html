@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>node搭建服务器 | 小亭子的博客 | 跌倒了仍然可以继续前进！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#FAA2D2">
+    
+    
+    <meta name="keywords" content="node">
+    <meta name="description" content="使用node搭建一个简单的服务器">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node搭建服务器">
+<meta property="og:url" content="http://yoursite.com/2018/03/22/node搭建服务器/index.html">
+<meta property="og:site_name" content="小亭子的博客">
+<meta property="og:description" content="使用node搭建一个简单的服务器">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-22T07:42:09.321Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node搭建服务器">
+<meta name="twitter:description" content="使用node搭建一个简单的服务器">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="https://avatars2.githubusercontent.com/u/29862231?v=4">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">小亭子</h5>
+          <a href="mailto:790791303@qq.com" title="790791303@qq.com" class="mail">790791303@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                时间归档
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                分类
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/xuxut" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about"  >
+                <i class="icon icon-lg icon-link"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">node搭建服务器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">node搭建服务器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-03-22T01:32:38.000Z" itemprop="datePublished" class="page-time">
+  2018-03-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+
+<article id="post-node搭建服务器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">node搭建服务器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-03-22 09:32:38" datetime="2018-03-22T01:32:38.000Z"  itemprop="datePublished">2018-03-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/后端/">后端</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>使用node搭建一个简单的服务器<br><a id="more"></a><br>1.新建文件夹，在里面再创建一个文件夹server<br>2.在server里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init    创建一个package.json</span><br><span class="line">npm i --save express(npm i -S express)  安装express</span><br></pre></td></tr></table></figure></p>
+<p>3.创建app.js(index.js)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;);</span><br><span class="line">let app = new express();</span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure></p>
+<p>4.打开服务器<br>安装：npm i -g supervisor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd:supervisor app|node app</span><br></pre></td></tr></table></figure></p>
+<p>地址栏localhost:3000<br>5.全局安装隧道服务<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmd:npm i -g ngrok</span><br><span class="line">任意位置:ngrok http 3000</span><br></pre></td></tr></table></figure></p>
+<p>或者网页安装（<a href="http://ngrok.com/download）" target="_blank" rel="noopener">http://ngrok.com/download）</a><br>C:/ngrok.exe<br>之后在C盘web-01里面将ngrok打开，并解压到桌面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:/ cmd:ngrok.exe http 3000</span><br></pre></td></tr></table></figure></p>
+<p>6.server/<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -S wechat</span><br></pre></td></tr></table></figure></p>
+<p>7.app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">const wechat = require(&quot;wechat&quot;);</span><br><span class="line">let config = &#123;</span><br><span class="line">	appid:&apos;&apos;,</span><br><span class="line">	token:&apos;&apos;,</span><br><span class="line">	encodingAESKey:&apos;&apos;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>8.微信公众平台-登录个人订阅号账号<br>开发-基本配置<br>复制AppId,粘贴为config的AppID值<br>9.开发-基本配置<br>服务器(未启用)-修改配置<br>token:weixin<br>encodingAESKey:随机生成<br>10.复制ngrok生成的隧道地址，填写到公众平台的url处<br>11.app.js<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">app.get(&apos;/&apos;,wechat(config,(req,res)=&gt;&#123;</span><br><span class="line">	let message = req.weixin </span><br><span class="line">	console.log(message)</span><br><span class="line"></span><br><span class="line">&#125;))</span><br></pre></td></tr></table></figure></p>
+<p>12.开发-基本配置<br>服务器配置（未启用）-修改配置<br>提交</p>
+<p>13.启用开发者模式<br>服务器配置（已启用）</p>
+<p>14.在公众号中输入消息，后台可以看到。<br>15.在公众号中输入消息，可以自动回复。<br>返回响应：res.reply(“收到”)</p>
+<p>16.模拟编辑模式的关键词半匹配回复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;);</span><br><span class="line">const wechat = require(&quot;wechat&quot;);</span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">	appid:&apos;wx8c42dec7e3b4dc1f&apos;,</span><br><span class="line">	token:&apos;weixin&apos;,</span><br><span class="line">	encodingAESKey:&apos;utC2otCu4vW0F86XpHIQZ9kx71I9fcltwDvbGFNk3Il&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let app = new express();</span><br><span class="line"></span><br><span class="line">app.post(&apos;/&apos;,wechat(config,(req,res)=&gt;&#123;</span><br><span class="line">	let message = req.weixin </span><br><span class="line">	console.log(message.Content)</span><br><span class="line">	res.reply(&quot;收到&quot;)</span><br><span class="line"></span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">const express = require(&quot;express&quot;);</span><br><span class="line">const wechat = require(&quot;wechat&quot;);</span><br><span class="line">const mysql=require(&quot;mysql&quot;);</span><br><span class="line">const pool = mysql.createPool(&#123;</span><br><span class="line">	user:&apos;root&apos;,</span><br><span class="line">	connectionLimit:5</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let config = &#123;</span><br><span class="line">	appid:&apos;wx8c42dec7e3b4dc1f&apos;,</span><br><span class="line">	token:&apos;weixin&apos;,</span><br><span class="line">	encodingAESKey:&apos;utC2otCu4vW0F86XpHIQZ9kx71I9fcltwDvbGFNk3Il&apos;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">let app = new express();</span><br><span class="line"></span><br><span class="line">app.post(&apos;/&apos;,wechat(config,(req,res)=&gt;&#123;</span><br><span class="line">	let message = req.weixin.Content</span><br><span class="line">	console.log(message)</span><br><span class="line">	//if(message.includes(&apos;JavaScript&apos;))&#123;</span><br><span class="line">	//	res.reply(&apos;JS...&apos;)</span><br><span class="line">	//&#125;else if(message.includes(&apos;HTML&apos;))&#123;</span><br><span class="line">	//	res.reply(&apos;HTML...&apos;)</span><br><span class="line">	//&#125;else if(message.includes(&apos;CSS&apos;))&#123;</span><br><span class="line">	//	res.reply(&apos;CSS&apos;)</span><br><span class="line">	//&#125;</span><br><span class="line"></span><br><span class="line">	let sql = `SELECT * FROM db.chat WHERE ? LIKE CONCAT(&apos;%&apos;+question+&apos;%&apos;)`;</span><br><span class="line">	pool.query(sql,[message],(err,result)=&gt;&#123;</span><br><span class="line">		//返回answer</span><br><span class="line">		if(result.length==1)&#123;</span><br><span class="line">			res.reply(results[0].answer)</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			res.reply(&apos;啊？&apos;)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line"></span><br><span class="line">&#125;))</span><br><span class="line"></span><br><span class="line">app.listen(3000);</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-22T07:42:09.321Z" itemprop="dateUpdated">2018-03-22 15:42:09</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/22/node搭建服务器/" target="_blank" rel="external">http://yoursite.com/2018/03/22/node搭建服务器/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="https://avatars2.githubusercontent.com/u/29862231?v=4" alt="小亭子">
+            小亭子
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/node/">node</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/22/node搭建服务器/&title=《node搭建服务器》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/22/node搭建服务器/&title=《node搭建服务器》 — 小亭子的博客&source=使用node搭建一个简单的服务器" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/22/node搭建服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《node搭建服务器》 — 小亭子的博客&url=http://yoursite.com/2018/03/22/node搭建服务器/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/22/node搭建服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/03/08/面试题汇总/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">面试题汇总</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢你请我吃糖果~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>小亭子 &copy; 2017 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/22/node搭建服务器/&title=《node搭建服务器》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/22/node搭建服务器/&title=《node搭建服务器》 — 小亭子的博客&source=使用node搭建一个简单的服务器" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/22/node搭建服务器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《node搭建服务器》 — 小亭子的博客&url=http://yoursite.com/2018/03/22/node搭建服务器/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/22/node搭建服务器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/22/node搭建服务器/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '人去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!回来了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
