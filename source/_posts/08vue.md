@@ -89,3 +89,11 @@ cont router = new VueRouter({
 })
 ```
 3.组件内的导航钩子
+4.父组件向子组件传递props（异步请求回来的数据）时，在子组件的生命周期挂载后，数据为undefined,用定时器延迟来接收即可。
+5.改变对象或数组不会触发DOM更新，解决办法：
+```
+eg: const obj = that.keywordList[key]
+		obj.checked = !obj.checked
+		that.leywordList.splice(index, 1, obj)
+```
+6.若需要动态添加元素的CSS,则<style></style>不能写scoped属性
