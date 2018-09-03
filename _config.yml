@@ -79,8 +79,10 @@ theme: indigo
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/xuxut/xuxut.github.io.git
-  branch: master
+  repo:
+    github: https://github.com/xuxut/xuxut.github.io.git,master
+    coding:
+      https://git.coding.net/xuxut/xuxut.git,master
 
 jsonContent:
     meta: false
