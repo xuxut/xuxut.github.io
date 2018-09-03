@@ -7,8 +7,12 @@ categories:
 - 博客开发
 ---
 
+>原文：http://www.voidcn.com/article/p-psfdomxz-yz.html
+
 >引言：
 >之前博客只部署到了github上，具体过程可参考[基于hexo+github博客的搭建](https://xuxut.github.io/2018/02/22/02hexo/)，我尝试同时部署到coding上。
+
+<!-- more -->
 
 1.打开[Coding.net官网](https://coding.net/)，注册个人账号。这里我直接关联的github账号。
 
