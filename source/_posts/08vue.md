@@ -97,3 +97,29 @@ eg: const obj = that.keywordList[key]
 		that.leywordList.splice(index, 1, obj)
 ```
 6.若需要动态添加元素的CSS,则<style></style>不能写scoped属性
+7.nextTick:在视图更新之后，基于新的视图进行操作。
+看一个例子：
+点击show按钮使得原来v-show：false的input输入框显示，并获取焦点：
+```
+ <div id="app">
+  <input ref="input" v-show="inputShow">
+  <button @click="show">show</button>  
+ </div>
+
+new Vue({
+  el: "#app",
+  data() {
+   return {
+     inputShow: false
+   }
+  },
+  methods: {
+    show() {
+      this.inputShow = true
+      this.$nextTick(() => {
+        this.$refs.input.focus()
+      })
+    }
+  }
+})
+```
