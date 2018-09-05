@@ -21,18 +21,21 @@
     
     
     <meta name="keywords" content="react,antd-mobile,微信JS-SDK">
-    <meta name="description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址 概述微信JS-SDK是微信公众平台面">
+    <meta name="description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址   概述微信JS-SDK是微信公众平">
 <meta name="keywords" content="react,antd-mobile,微信JS-SDK">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微信网页版图片上传预览的书写步骤">
 <meta property="og:url" content="http://yoursite.com/2018/09/05/微信网页版图片上传预览的书写步骤/index.html">
 <meta property="og:site_name" content="小亭子的博客">
-<meta property="og:description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址 概述微信JS-SDK是微信公众平台面">
+<meta property="og:description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址   概述微信JS-SDK是微信公众平">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-05T10:48:14.361Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/05/微信网页版图片上传预览的书写步骤/微信图片_20180905190554.png">
+<meta property="og:image" content="http://yoursite.com/2018/09/05/微信网页版图片上传预览的书写步骤/微信图片_20180905190333.png">
+<meta property="og:updated_time" content="2018-09-05T11:10:35.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微信网页版图片上传预览的书写步骤">
-<meta name="twitter:description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址 概述微信JS-SDK是微信公众平台面">
+<meta name="twitter:description" content="微信网页版文档：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;amp;id=mp1421141115引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。  关于真机调试，网址已记录在前端学习及工具网址   概述微信JS-SDK是微信公众平">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/05/微信网页版图片上传预览的书写步骤/微信图片_20180905190554.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -195,6 +198,8 @@
 <p>微信网页版文档：<a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115" target="_blank" rel="noopener">https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421141115</a><br>引言：最近做了一个关于图片的功能，包括添加/预览/删除，这里用react的ui框架的一个标签即能实现这些功能。当然还需要调微信端的图像接口。我已经记录了下来。</p>
 </blockquote>
 <p>关于真机调试，网址已记录在<a href="http://xuxut.coding.me/2018/09/03/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0%E5%8F%8A%E5%B7%A5%E5%85%B7%E7%BD%91%E5%9D%80/" target="_blank" rel="noopener">前端学习及工具网址</a></p>
+<img src="/2018/09/05/微信网页版图片上传预览的书写步骤/微信图片_20180905190554.png" title="图片描述">
+<img src="/2018/09/05/微信网页版图片上传预览的书写步骤/微信图片_20180905190333.png" title="图片描述">
 <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>微信JS-SDK是<a href="https://mp.weixin.qq.com/cgi-bin/loginpage?t=wxm2-login&amp;lang=zh_CN&amp;token=" target="_blank" rel="noopener">微信公众平台</a>面向网页开发者提供的基于微信内的网页开发工具包。</p>
 <p>通过使用微信JS-SDK，网页开发者可以借助使用拍照/选图/语音/位置等手机系统的能力，同时可以直接使用微信分享、扫一扫、卡券、支付等微信特有的能力，为微信用户提供更优质的网页体验。</p>
 <h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><h4 id="1-绑定域名"><a href="#1-绑定域名" class="headerlink" title="1. 绑定域名"></a>1. 绑定域名</h4><h4 id="2-引入js文件-http-res-wx-qq-com-open-js-jweixin-1-4-0-js"><a href="#2-引入js文件-http-res-wx-qq-com-open-js-jweixin-1-4-0-js" class="headerlink" title="2. 引入js文件 http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></a>2. 引入js文件 <code>http://res.wx.qq.com/open/js/jweixin-1.4.0.js</code></h4><h4 id="3-注入权限验证配置"><a href="#3-注入权限验证配置" class="headerlink" title="3. 注入权限验证配置"></a>3. 注入权限验证配置</h4><p>所有需要使用JS-SDK的页面必须先注入配置信息，否则无法调用。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">wx.config(&#123;</span><br><span class="line">    debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。</span><br><span class="line">    appId: &apos;&apos;, // 必填，公众号的唯一标识</span><br><span class="line">    timestamp: , // 必填，生成签名的时间戳</span><br><span class="line">    nonceStr: &apos;&apos;, // 必填，生成签名的随机串</span><br><span class="line">    signature: &apos;&apos;,// 必填，签名</span><br><span class="line">    jsApiList: [] // 必填，需要使用的JS接口列表</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">eg: 需要的JS接口列表</span><br><span class="line">jsApiList:[&apos;checkJsApi&apos;,</span><br><span class="line">          &apos;chooseImage&apos;,</span><br><span class="line">          &apos;uploadImage&apos;,</span><br><span class="line">          &apos;getLocalImgData&apos;,</span><br><span class="line">          &apos;onMenuShareAppMessage&apos;,</span><br><span class="line">          ]</span><br></pre></td></tr></table></figure></p>
@@ -213,7 +218,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-05T10:48:14.361Z" itemprop="dateUpdated">2018-09-05 18:48:14</time>
+    最后更新时间：<time datetime="2018-09-05T11:10:35.332Z" itemprop="dateUpdated">2018-09-05 19:10:35</time>
 </span><br>
 
 
