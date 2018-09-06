@@ -113,3 +113,7 @@ import { createStore } from 'redux';
 const store = createStore(reducer);
 ```
 具体参见见阮一峰的网络日志http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html
+
+## 中间件react-thunk与异步操作
+上述的所有是同步的操作，若需要异步操作的话需要使用中间件
+http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html
