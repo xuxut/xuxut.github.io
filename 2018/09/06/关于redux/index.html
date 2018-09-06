@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="redux,redux-thunk">
-    <meta name="description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。基本概念">
+    <meta name="description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。使用使用 r">
 <meta name="keywords" content="redux,redux-thunk">
 <meta property="og:type" content="article">
 <meta property="og:title" content="关于redux">
 <meta property="og:url" content="http://yoursite.com/2018/09/06/关于redux/index.html">
 <meta property="og:site_name" content="小亭子的博客">
-<meta property="og:description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。基本概念">
+<meta property="og:description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。使用使用 r">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-06T08:45:04.084Z">
+<meta property="og:updated_time" content="2018-09-06T08:56:34.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于redux">
-<meta name="twitter:description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。基本概念">
+<meta name="twitter:description" content="前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。  适用场景redux的适用场景：多交互/多数据源  某个组件的状态，需要共享 某个状态需要在任何地方都可以拿到 一个组件需要改变全局状态 一个组件需要改变另一个组件的状态设计思想 Web 应用是一个状态机，视图与状态是一一对应的。 所有的状态，保存在一个对象里面。使用使用 r">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -165,7 +165,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#适用场景"><span class="post-toc-number">1.</span> <span class="post-toc-text">适用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计思想"><span class="post-toc-number">2.</span> <span class="post-toc-text">设计思想</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">3.</span> <span class="post-toc-text">基本概念</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#中间件react-thunk与异步操作"><span class="post-toc-number"></span> <span class="post-toc-text">中间件react-thunk与异步操作</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#适用场景"><span class="post-toc-number">1.</span> <span class="post-toc-text">适用场景</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#设计思想"><span class="post-toc-number">2.</span> <span class="post-toc-text">设计思想</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">4.</span> <span class="post-toc-text">基本概念</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#中间件react-thunk与异步操作"><span class="post-toc-number"></span> <span class="post-toc-text">中间件react-thunk与异步操作</span></a>
         </nav>
     </aside>
 
@@ -201,9 +201,11 @@
 <li>一个组件需要改变全局状态</li>
 <li>一个组件需要改变另一个组件的状态<h3 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h3></li>
 <li>Web 应用是一个状态机，视图与状态是一一对应的。</li>
-<li>所有的状态，保存在一个对象里面。<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3></li>
+<li>所有的状态，保存在一个对象里面。<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3>使用 react-redux<br>首先在最外层容器中，把所有内容包裹在 Provider 组件中，将之前创建的 store 作为 prop 传给 Provider。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">      &lt;Comp/&gt;</span><br><span class="line">    &lt;<span class="regexp">/Provider&gt;</span></span><br><span class="line"><span class="regexp">  )</span></span><br><span class="line"><span class="regexp">&#125;;</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<ol>
+<p>Provider 内的任何一个组件（比如这里的 Comp），如果需要使用 state 中的数据，就必须是「被 connect 过的」组件——使用 connect 方法对「你编写的组件（MyComp）」进行包装后的产物。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyComp</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// content...</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Comp = connect(...args)(MyComp);</span><br></pre></td></tr></table></figure></p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ol>
 <li>store<br><code>Store</code>就是保存数据的地方，你可以把它看成一个容器。整个应用只能有一个 <code>Store</code>。<br>Redux 提供<code>createStore</code>这个函数，用来生成 Store。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> store = createStore(fn);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -236,7 +238,7 @@
 <p><code>Reducer</code> 是一个函数，它接受 Action 和当前 State 作为参数，返回一个新的 State。<br>整个应用的初始状态，可以作为 State 的默认值。下面是一个实际的例子。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> reducer = <span class="function">(<span class="params">state = defaultState, action</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">'ADD'</span>:</span><br><span class="line">      <span class="keyword">return</span> state + action.payload;</span><br><span class="line">    <span class="keyword">default</span>: </span><br><span class="line">      <span class="keyword">return</span> state;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> state = reducer(<span class="number">1</span>, &#123;</span><br><span class="line">  type: <span class="string">'ADD'</span>,</span><br><span class="line">  payload: <span class="number">2</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>上面代码中，<code>reducer</code>函数收到名为ADD的 Action 以后，就返回一个新的 State，作为加法的计算结果。其他运算的逻辑（比如减法），也可以根据 Action 的不同来实现。</p>
 <p>实际应用中，<code>Reducer</code> 函数不用像上面这样手动调用，store.dispatch方法会触发 <code>Reducer</code> 的自动执行。为此，Store 需要知道 <code>Reducer</code> 函数，做法就是在生成 Store 的时候，将 <code>Reducer</code> 传入createStore方法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br></pre></td></tr></table></figure></p>
-<p>具体参见见阮一峰的网络日志<a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a></p>
+<p>更多的具体参见见阮一峰的网络日志<a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html</a></p>
 <h2 id="中间件react-thunk与异步操作"><a href="#中间件react-thunk与异步操作" class="headerlink" title="中间件react-thunk与异步操作"></a>中间件react-thunk与异步操作</h2><p>上述的所有是同步的操作，若需要异步操作的话需要使用中间件<br><a href="http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_two_async_operations.html</a></p>
 
         </div>
@@ -246,7 +248,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-09-06T08:45:04.084Z" itemprop="dateUpdated">2018-09-06 16:45:04</time>
+    最后更新时间：<time datetime="2018-09-06T08:56:34.585Z" itemprop="dateUpdated">2018-09-06 16:56:34</time>
 </span><br>
 
 
