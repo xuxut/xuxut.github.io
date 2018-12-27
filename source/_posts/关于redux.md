@@ -6,6 +6,7 @@ tags:
 - redux-thunk
 categories:
 - react
+blogexcerpt: redux是一个很好的东西
 ---
 
 >前言：如果你的应用没那么复杂，就没必要用它。另一方面，Redux 只是 Web 架构的一种解决方案，也可以选择其他方案。

@@ -12,6 +12,8 @@ categories:
 
 最近用基于vue的mpvue框架以及类似ui库的东西（http://kuangpf.com/mpvue-weui/#/grid）搭建了一个类似知乎的小程序。
 
+<!-- more -->
+
 ### 开发步骤
 ```
 $ vue init mpvue/mpvue-quickstart my-project
