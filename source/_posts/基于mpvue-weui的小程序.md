@@ -10,6 +10,8 @@ categories:
 >原文文档出自http://kuangpf.com/mpvue-weui/#/README
 >项目出自https://github.com/RebeccaHanjw/weapp-wechat-zhihu
 
+>其他的小程序UI框架:`https://github.com/weilanwl/ColorUI`
+
 最近用基于vue的mpvue框架以及类似ui库的东西（http://kuangpf.com/mpvue-weui/#/grid）搭建了一个类似知乎的小程序。
 
 <!-- more -->
