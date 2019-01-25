@@ -136,3 +136,6 @@ highlight_theme: normal
 #   - css 样式资源下的 fonts 目录
 #----------------------------
 CDN:
+
+local_search:
+    enable: true
