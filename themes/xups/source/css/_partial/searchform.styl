@@ -25,47 +25,39 @@
 
 /*搜索框*/
 .search {
-  width: 68%;
-  height: 18px;
+  width: 100%;
+  height: 44px;
   margin-top: 1px;
-  padding: 0;
+  padding: 0 20px;
   font-family: inherit;
   border: 2px solid transparent;
   border-bottom: 2px solid #d3d3d3;
   border-radius: 2px;
   opacity: 0.65;
   background: none;
+  outline: none;
+  padding-right: 50px;
 }
-.search:hover {
+.search:hover, .search:focus{
   border: 2px solid #d3d3d3;
   opacity: 1;
   box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/*搜索重置按钮*/
-#search-form .fa-times {
-  display: none;
-  padding: 1px 0.7em;
-  box-shadow: 0 0 3px rgba(0,0,0,0.15);
-  cursor: pointer;
-  color: #808080;
-}
-#search-form .fa-times:active {
-  background: #d3d3d3;
-}
-#search-form .fa-times:hover {
-  zoom: 1.1;
-  padding: 1px 0.6em;
-  border: 1px solid #d3d3d3;
-  box-shadow: 0 0 6px rgba(0,0,0,0.25);
-}
 
 /*搜索结果区*/
 #local-search-result {
-  margin: auto -12% auto -6%;
   font-size: 0.9em;
   text-align: left;
   word-break: break-all;
+  position: absolute;
+  background: #fff;
+  z-index: 999;
+  width: 100%;
+  box-shadow: 1px 1px 10px 2px gray;
+  padding-right: 20px;
+  box-sizing: border-box;
+  transition: all .3s;
 }
 
 #local-search-result ul.search-result-list li:hover {
@@ -117,4 +109,50 @@ p.no-result {
   color: #808080;
   font-family: font-serif serif;
   border-bottom: 2px solid #d3d3d3;
+}
+
+// 清除搜索
+#site_search{
+  position: relative;  
+}
+.search-clear{
+  display:inline-block;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 25px;
+  height: 25px;
+  // border: 2px solid #ff5e52;  
+  cursor: pointer;
+  transition: all .3s;
+}
+.search-clear:hover{
+  background: #ff5e52;
+  border-radius: 50%;
+}
+.search-clear:hover::before{
+  background: #fff;  
+}
+.search-clear:hover::after{
+  background: #fff;  
+}
+.search-clear::before{
+  content: '';
+  position:absolute;
+  left:50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%) rotateZ(45deg);
+  width:  2px;
+  height: 20px;
+  background: #ff5e52;  
+}
+.search-clear::after{
+  content: '';
+  position:absolute;
+  left:50%;
+  top: 50%;
+  transform:translateY(-50%) translateX(-50%) rotateZ(-45deg);
+  width:  2px;
+  height: 20px;
+  background: #ff5e52;  
 }
