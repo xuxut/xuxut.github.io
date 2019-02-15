@@ -19,7 +19,9 @@ $(function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
                     $resultContent.innerHTML = "";
+                    console.log(this.value.trim().length)
                     if (this.value.trim().length <= 0) {
+                        $resultContent.innerHTML = '暂无'
                         return;
                     }
                     // perform local searching
@@ -89,6 +91,7 @@ $(function () {
                     });
                     str += "</ul>";
                     $resultContent.innerHTML = str;
+                    
                 });
             }
         });

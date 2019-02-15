@@ -14,6 +14,7 @@ categories:
 ## git
 `https://git-scm.com/downloads`
 
+<!-- more -->
 ## npm-cnpm-yarn-tyarn
 ```
 npm -v

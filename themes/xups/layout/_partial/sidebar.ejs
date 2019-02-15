@@ -4,9 +4,12 @@
     <div id="site_search">
         <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." 
             class="form-control search" />
-        <i class="search-clear"></i><!-- 清空/重置搜索框 -->
-        <div id="local-search-result"></div><!-- 搜索结果区 -->
-        <p class='no-result'>No results found </p> <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
+        <!-- 清空/重置搜索框 -->
+        <i class="search-clear"></i>
+        <!-- 搜索结果区 -->
+        <div id="local-search-result"></div>
+        <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
+        <p class='no-result'>无搜索结果 </p> 
     </div>
     <%- js('js/jquery') %>
     <%- js('js/search') %>
@@ -16,13 +19,16 @@
             search_path = "search.xml";
         }
         var path = "<%= config.root %>" + search_path;
-
-        // 清空搜索
-        $('.search-clear').click(function(){
-            $('#local-search-input').val('')
-        })
-
+       
         searchFunc(path, 'local-search-input', 'local-search-result');
+    
+         // 清空搜索
+         $('.search-clear').click(function(){
+            // $('#local-search-input').val('')
+            searchFunc(path, 'local-search-input', 'local-search-result');
+            // $('#local-search-result').hide()
+            // $('.no-result').show()
+        })
     </script>
 
     <!-- 文章分类 -->
