@@ -7,14 +7,16 @@ categories:
 - 前端框架 
 ---
 
-<!-- more -->
 ## index.js
 ```javascript
 import React, { Component, PureComponent } from 'react'
 export default class TagSelect extends Component{
 
 }
+
 ```
+<!-- more -->
+
 ## TagSelectionOption.d.ts
 ```javascript
 import * as React from 'react';
