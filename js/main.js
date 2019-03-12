@@ -1,543 +1,210 @@
-(function (w, d) {
-
-    var body = d.body,
-        $ = d.querySelector.bind(d),
-        $$ = d.querySelectorAll.bind(d),
-        root = $('html'),
-        gotop = $('#gotop'),
-        menu = $('#menu'),
-        header = $('#header'),
-        mask = $('#mask'),
-        menuToggle = $('#menu-toggle'),
-        menuOff = $('#menu-off'),
-        loading = $('#loading'),
-        animate = w.requestAnimationFrame,
-        scrollSpeed = 200 / (1000 / 60),
-        forEach = Array.prototype.forEach,
-        even = ('ontouchstart' in w && /Mobile|Android|iOS|iPhone|iPad|iPod|Windows Phone|KFAPWI/i.test(navigator.userAgent)) ? 'touchstart' : 'click',
-        isWX = /micromessenger/i.test(navigator.userAgent),
-        noop = function () { },
-        offset = function (el) {
-            var x = el.offsetLeft,
-                y = el.offsetTop;
-
-            if (el.offsetParent) {
-                var pOfs = arguments.callee(el.offsetParent);
-                x += pOfs.x;
-                y += pOfs.y;
-            }
-
-            return {
-                x: x,
-                y: y
-            };
-        },
-        rootScollTop = function() {
-            return d.documentElement.scrollTop || d.body.scrollTop;
-        };
-
-    var Blog = {
-        goTop: function (end) {
-            var top = rootScollTop();
-            var interval = arguments.length > 2 ? arguments[1] : Math.abs(top - end) / scrollSpeed;
-
-            if (top && top > end) {
-                w.scrollTo(0, Math.max(top - interval, 0));
-                animate(arguments.callee.bind(this, end, interval));
-            } else if (end && top < end) {
-                w.scrollTo(0, Math.min(top + interval, end));
-                animate(arguments.callee.bind(this, end, interval));
-            } else {
-                this.toc.actived(end);
-            }
-        },
-        toggleGotop: function (top) {
-            if (top > w.innerHeight / 2) {
-                gotop.classList.add('in');
-            } else {
-                gotop.classList.remove('in');
-            }
-        },
-        toggleMenu: function (flag) {
-            var main = $('#main');
-            if (flag) {
-                menu.classList.remove('hide');
-
-                if (w.innerWidth < 1241) {
-                    mask.classList.add('in');
-                    menu.classList.add('show');
-
-                    if (isWX) {
-                        var top = rootScollTop();
-                        main.classList.add('lock');
-                        main.scrollTop = top;
-                    } else {
-                        root.classList.add('lock');
-                    }
-                }
-
-            } else {
-                menu.classList.remove('show');
-                mask.classList.remove('in');
-                if (isWX) {
-                    var top = main.scrollTop;
-                    main.classList.remove('lock');
-                    w.scrollTo(0, top);
-                } else {
-                    root.classList.remove('lock');
-                }
-
-            }
-        },
-        fixedHeader: function (top) {
-            if (top > header.clientHeight) {
-                header.classList.add('fixed');
-            } else {
-                header.classList.remove('fixed');
-            }
-        },
-        toc: (function () {
-            var toc = $('#post-toc');
-
-            if (!toc || !toc.children.length) {
-                return {
-                    fixed: noop,
-                    actived: noop
-                }
-            }
-
-            var bannerH = $('.post-header').clientHeight,
-                headerH = header.clientHeight,
-                titles = $('#post-content').querySelectorAll('h1, h2, h3, h4, h5, h6');
-
-            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode.classList.add('active');
-
-            // Make every child shrink initially
-            var tocChilds = toc.querySelectorAll('.post-toc-child');
-            for (i = 0, len = tocChilds.length; i < len; i++) {
-                tocChilds[i].classList.add('post-toc-shrink');
-            }
-            var firstChild =
-                toc.querySelector('a[href="#' + titles[0].id + '"]')
-                    .nextElementSibling;
-            if (firstChild) {
-                firstChild.classList.add('post-toc-expand');
-                firstChild.classList.remove('post-toc-shrink');
-            }
-            toc.classList.remove('post-toc-shrink');
-
-            /**
-             * Handle toc active and expansion
-             * @param prevEle previous active li element
-             * @param currEle current active li element
-             */
-            var handleTocActive = function (prevEle, currEle) {
-                prevEle.classList.remove('active');
-                currEle.classList.add('active');
-
-                var siblingChilds = currEle.parentElement.querySelectorAll('.post-toc-child');
-                for (j = 0, len1 = siblingChilds.length; j < len1; j++) {
-                    siblingChilds[j].classList.remove('post-toc-expand');
-                    siblingChilds[j].classList.add('post-toc-shrink');
-                }
-                var myChild = currEle.querySelector('.post-toc-child');
-                if (myChild) {
-                    myChild.classList.remove('post-toc-shrink');
-                    myChild.classList.add('post-toc-expand');
-                }
-            };
-
-            return {
-                fixed: function (top) {
-                    top >= bannerH - headerH ? toc.classList.add('fixed') : toc.classList.remove('fixed');
-                },
-                actived: function (top) {
-                    for (i = 0, len = titles.length; i < len; i++) {
-                        if (top > offset(titles[i]).y - headerH - 5) {
-                            var prevListEle = toc.querySelector('li.active');
-                            var currListEle = toc.querySelector('a[href="#' + titles[i].id + '"]').parentNode;
-
-                            handleTocActive(prevListEle, currListEle);
-                        }
-                    }
-
-                    if (top < offset(titles[0]).y) {
-                        handleTocActive(
-                            toc.querySelector('li.active'),
-                            toc.querySelector('a[href="#' + titles[0].id + '"]').parentNode
-                        );
-                    }
-                }
-            }
-        })(),
-        hideOnMask: [],
-        modal: function (target) {
-            this.$modal = $(target);
-            this.$off = this.$modal.querySelector('.close');
-
-            var _this = this;
-
-            this.show = function () {
-                mask.classList.add('in');
-                _this.$modal.classList.add('ready');
-                setTimeout(function () {
-                    _this.$modal.classList.add('in');
-                }, 0)
-            }
-
-            this.onHide = noop;
-
-            this.hide = function () {
-                _this.onHide();
-                mask.classList.remove('in');
-                _this.$modal.classList.remove('in');
-                setTimeout(function () {
-                    _this.$modal.classList.remove('ready');
-                }, 300)
-            }
-
-            this.toggle = function () {
-                return _this.$modal.classList.contains('in') ? _this.hide() : _this.show();
-            }
-
-            Blog.hideOnMask.push(this.hide);
-            this.$off && this.$off.addEventListener(even, this.hide);
-        },
-        share: function () {
-
-            var pageShare = $('#pageShare'),
-                fab = $('#shareFab');
-
-            var shareModal = new this.modal('#globalShare');
-
-            $('#menuShare').addEventListener(even, shareModal.toggle);
-
-            if (fab) {
-                fab.addEventListener(even, function () {
-                    pageShare.classList.toggle('in')
-                }, false)
-
-                d.addEventListener(even, function (e) {
-                    !fab.contains(e.target) && pageShare.classList.remove('in')
-                }, false)
-            }
-
-            var wxModal = new this.modal('#wxShare');
-            wxModal.onHide = shareModal.hide;
-
-            forEach.call($$('.wxFab'), function (el) {
-                el.addEventListener(even, wxModal.toggle)
-            })
-
-        },
-        search: function () {
-            var searchWrap = $('#search-wrap');
-
-            function toggleSearch() {
-                searchWrap.classList.toggle('in');
-            }
-
-            $('#search').addEventListener(even, toggleSearch);
-        },
-        reward: function () {
-            var modal = new this.modal('#reward');
-            $('#rewardBtn').addEventListener(even, modal.toggle);
-
-            var $rewardToggle = $('#rewardToggle');
-            var $rewardCode = $('#rewardCode');
-            if ($rewardToggle) {
-                $rewardToggle.addEventListener('change', function () {
-                    $rewardCode.src = this.checked ? this.dataset.alipay : this.dataset.wechat
-                })
-            }
-        },
-        waterfall: function () {
-
-            if (w.innerWidth < 760) return;
-
-            forEach.call($$('.waterfall'), function (el) {
-                var childs = el.querySelectorAll('.waterfall-item');
-                var columns = [0, 0];
-
-                forEach.call(childs, function (item) {
-                    var i = columns[0] <= columns[1] ? 0 : 1;
-                    item.style.cssText = 'top:' + columns[i] + 'px;left:' + (i > 0 ? '50%' : 0);
-                    columns[i] += item.offsetHeight;
-                })
-
-                el.style.height = Math.max(columns[0], columns[1]) + 'px';
-                el.classList.add('in')
-            })
-
-        },
-        tabBar: function (el) {
-            el.parentNode.parentNode.classList.toggle('expand')
-        },
-        page: (function () {
-            var $elements = $$('.fade, .fade-scale');
-            var visible = false;
-
-            return {
-                loaded: function () {
-                    forEach.call($elements, function (el) {
-                        el.classList.add('in')
-                    });
-                    visible = true;
-                },
-                unload: function () {
-                    forEach.call($elements, function (el) {
-                        el.classList.remove('in')
-                    });
-                    visible = false;
-                },
-                visible: visible
-            }
-
-        })(),
-        lightbox: (function () {
-
-            function LightBox(element) {
-                this.$img = element.querySelector('img');
-                this.$overlay = element.querySelector('overlay');
-                this.margin = 40;
-                this.title = this.$img.title || this.$img.alt || '';
-                this.isZoom = false;
-
-                var naturalW, naturalH, imgRect, docW, docH;
-
-                this.calcRect = function () {
-                    docW = body.clientWidth;
-                    docH = body.clientHeight;
-                    var inH = docH - this.margin * 2;
-                    var w = naturalW;
-                    var h = naturalH;
-                    var t = this.margin;
-                    var l = 0;
-                    var sw = w > docW ? docW / w : 1;
-                    var sh = h > inH ? inH / h : 1;
-                    var s = Math.min(sw, sh);
-
-                    w = w * s;
-                    h = h * s;
-
-                    return {
-                        w: w,
-                        h: h,
-                        t: (docH - h) / 2 - imgRect.top,
-                        l: (docW - w) / 2 - imgRect.left + this.$img.offsetLeft
-                    }
-                }
-
-                this.setImgRect = function (rect) {
-                    this.$img.style.cssText = 'width: ' + rect.w + 'px; max-width: ' + rect.w + 'px; height:' + rect.h + 'px; top: ' + rect.t + 'px; left: ' + rect.l + 'px';
-                }
-
-                this.setFrom = function () {
-                    this.setImgRect({
-                        w: imgRect.width,
-                        h: imgRect.height,
-                        t: 0,
-                        l: (element.offsetWidth - imgRect.width) / 2
-                    })
-                }
-
-                this.setTo = function () {
-                    this.setImgRect(this.calcRect());
-                }
-
-                // this.updateSize = function () {
-                //     var sw = sh = 1;
-                //     if (docW !== body.clientWidth) {
-                //         sw = body.clientWidth / docW;
-                //     }
-
-                //     if (docH !== body.clientHeight) {
-                //         sh = body.clientHeight / docH;
-                //     }
-
-                //     docW = body.clientWidth;
-                //     docH = body.clientHeight;
-                //     var rect = this.$img.getBoundingClientRect();
-                //     var w = rect.width * sw;
-                //     var h = rect.height * sh;
-
-                //     this.$img.classList.remove('zoom-in');
-                //     this.setImgRect({
-                //         w: w,
-                //         h: h,
-                //         t: this.$img.offsetTop - (h - rect.height) / 2,
-                //         l: this.$img.offsetLeft - (w - rect.width) / 2
-                //     })
-                // }
-
-                this.addTitle = function () {
-                    if (!this.title) {
-                        return;
-                    }
-                    this.$caption = d.createElement('div');
-                    this.$caption.innerHTML = this.title;
-                    this.$caption.className = 'overlay-title';
-                    element.appendChild(this.$caption);
-                }
-
-                this.removeTitle = function () {
-                    this.$caption && element.removeChild(this.$caption)
-                }
-
-                var _this = this;
-
-                this.zoomIn = function () {
-                    naturalW = this.$img.naturalWidth || this.$img.width;
-                    naturalH = this.$img.naturalHeight || this.$img.height;
-                    imgRect = this.$img.getBoundingClientRect();
-                    element.style.height = imgRect.height + 'px';
-                    element.classList.add('ready');
-                    this.setFrom();
-                    this.addTitle();
-                    this.$img.classList.add('zoom-in');
-
-                    setTimeout(function () {
-                        element.classList.add('active');
-                        _this.setTo();
-                        _this.isZoom = true;
-                    }, 0);
-                }
-
-                this.zoomOut = function () {
-                    this.isZoom = false;
-                    element.classList.remove('active');
-                    this.$img.classList.add('zoom-in');
-                    this.setFrom();
-                    setTimeout(function () {
-                        _this.$img.classList.remove('zoom-in');
-                        _this.$img.style.cssText = '';
-                        _this.removeTitle();
-                        element.classList.remove('ready');
-                        element.removeAttribute('style');
-                    }, 300);
-                }
-
-                element.addEventListener('click', function (e) {
-                    _this.isZoom ? _this.zoomOut() : e.target.tagName === 'IMG' && _this.zoomIn()
-                })
-
-                d.addEventListener('scroll', function () {
-                    _this.isZoom && _this.zoomOut()
-                })
-
-                w.addEventListener('resize', function () {
-                    // _this.isZoom && _this.updateSize()
-                    _this.isZoom && _this.zoomOut()
-                })
-            }
-
-            forEach.call($$('.img-lightbox'), function (el) {
-                new LightBox(el)
-            })
-        })(),
-        loadScript: function (scripts) {
-            scripts.forEach(function (src) {
-                var s = d.createElement('script');
-                s.src = src;
-                s.async = true;
-                body.appendChild(s);
-            })
-        }
+/*! echo-js v1.7.3 | (c) 2016 @toddmotto | https://github.com/toddmotto/echo */
+(function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(function() {
+      return factory(root);
+    });
+  } else if (typeof exports === 'object') {
+    module.exports = factory;
+  } else {
+    root.echo = factory(root);
+  }
+})(this, function(root) {
+
+  'use strict';
+
+  var echo = {};
+
+  var callback = function() {};
+
+  var offset, poll, delay, useDebounce, unload;
+
+  var isHidden = function(element) {
+    return (element.offsetParent === null);
+  };
+
+  var inView = function(element, view) {
+    if (isHidden(element)) {
+      return false;
+    }
+
+    var box = element.getBoundingClientRect();
+    return (box.right >= view.l && box.bottom >= view.t && box.left <= view.r && box.top <= view.b);
+  };
+
+  var debounceOrThrottle = function() {
+    if (!useDebounce && !!poll) {
+      return;
+    }
+    clearTimeout(poll);
+    poll = setTimeout(function() {
+      echo.render();
+      poll = null;
+    }, delay);
+  };
+
+  echo.init = function(opts) {
+    opts = opts || {};
+    var offsetAll = opts.offset || 0;
+    var offsetVertical = opts.offsetVertical || offsetAll;
+    var offsetHorizontal = opts.offsetHorizontal || offsetAll;
+    var optionToInt = function(opt, fallback) {
+      return parseInt(opt || fallback, 10);
     };
-
-    w.addEventListener('load', function () {
-        loading.classList.remove('active');
-        Blog.page.loaded();
-        w.lazyScripts && w.lazyScripts.length && Blog.loadScript(w.lazyScripts)
-    });
-
-    w.addEventListener('DOMContentLoaded', function () {
-        Blog.waterfall();
-        var top = rootScollTop();
-        Blog.toc.fixed(top);
-        Blog.toc.actived(top);
-        Blog.page.loaded();
-    });
-
-    var ignoreUnload = false;
-    var $mailTarget = $('a[href^="mailto"]');
-    if($mailTarget) {
-        $mailTarget.addEventListener(even, function () {
-            ignoreUnload = true;
-        });
-    }
-
-    w.addEventListener('beforeunload', function (e) {
-        if (!ignoreUnload) {
-            Blog.page.unload();
-        } else {
-            ignoreUnload = false;
-        }
-    });
-
-    w.addEventListener('pageshow', function () {
-        // fix OSX safari #162
-        !Blog.page.visible && Blog.page.loaded();
-    });
-
-    w.addEventListener('resize', function () {
-        w.BLOG.even = even = 'ontouchstart' in w ? 'touchstart' : 'click';
-        Blog.toggleMenu();
-        Blog.waterfall();
-    });
-
-    gotop.addEventListener(even, function () {
-        animate(Blog.goTop.bind(Blog, 0));
-    }, false);
-
-    menuToggle.addEventListener(even, function (e) {
-        Blog.toggleMenu(true);
-        e.preventDefault();
-    }, false);
-
-    menuOff.addEventListener(even, function () {
-        menu.classList.add('hide');
-    }, false);
-
-    mask.addEventListener(even, function (e) {
-        Blog.toggleMenu();
-        Blog.hideOnMask.forEach(function (hide) {
-            hide()
-        });
-        e.preventDefault();
-    }, false);
-
-    d.addEventListener('scroll', function () {
-        var top = rootScollTop();
-        Blog.toggleGotop(top);
-        Blog.fixedHeader(top);
-        Blog.toc.fixed(top);
-        Blog.toc.actived(top);
-    }, false);
-
-    if (w.BLOG.SHARE) {
-        Blog.share()
-    }
-
-    if (w.BLOG.REWARD) {
-        Blog.reward()
-    }
-
-    Blog.noop = noop;
-    Blog.even = even;
-    Blog.$ = $;
-    Blog.$$ = $$;
-
-    Object.keys(Blog).reduce(function (g, e) {
-        g[e] = Blog[e];
-        return g
-    }, w.BLOG);
-
-    if (w.Waves) {
-        Waves.init();
-        Waves.attach('.global-share li', ['waves-block']);
-        Waves.attach('.article-tag-list-link, #page-nav a, #page-nav span', ['waves-button']);
+    offset = {
+      t: optionToInt(opts.offsetTop, offsetVertical),
+      b: optionToInt(opts.offsetBottom, offsetVertical),
+      l: optionToInt(opts.offsetLeft, offsetHorizontal),
+      r: optionToInt(opts.offsetRight, offsetHorizontal)
+    };
+    delay = optionToInt(opts.throttle, 250);
+    useDebounce = opts.debounce !== false;
+    unload = !!opts.unload;
+    callback = opts.callback || callback;
+    echo.render();
+    if (document.addEventListener) {
+      root.addEventListener('scroll', debounceOrThrottle, false);
+      root.addEventListener('load', debounceOrThrottle, false);
     } else {
-        console.error('Waves loading failed.')
+      root.attachEvent('onscroll', debounceOrThrottle);
+      root.attachEvent('onload', debounceOrThrottle);
     }
-})(window, document);
+  };
+
+  echo.render = function() {
+    var nodes = document.querySelectorAll('img[data-echo], [data-echo-background]');
+    var length = nodes.length;
+    var src, elem;
+    var view = {
+      l: 0 - offset.l,
+      t: 0 - offset.t,
+      b: (root.innerHeight || document.documentElement.clientHeight) + offset.b,
+      r: (root.innerWidth || document.documentElement.clientWidth) + offset.r
+    };
+    for (var i = 0; i < length; i++) {
+      elem = nodes[i];
+      if (inView(elem, view)) {
+
+        if (unload) {
+          elem.setAttribute('data-echo-placeholder', elem.src);
+        }
+
+        if (elem.getAttribute('data-echo-background') !== null) {
+          elem.style.backgroundImage = "url(" + elem.getAttribute('data-echo-background') + ")";
+        } else {
+          elem.src = elem.getAttribute('data-echo');
+        }
+
+        if (!unload) {
+          elem.removeAttribute('data-echo');
+          elem.removeAttribute('data-echo-background');
+        }
+
+        callback(elem, 'load');
+      } else if (unload && !!(src = elem.getAttribute('data-echo-placeholder'))) {
+
+        if (elem.getAttribute('data-echo-background') !== null) {
+          elem.style.backgroundImage = "url(" + src + ")";
+        } else {
+          elem.src = src;
+        }
+
+        elem.removeAttribute('data-echo-placeholder');
+        callback(elem, 'unload');
+      }
+    }
+    if (!length) {
+      echo.detach();
+    }
+  };
+
+  echo.detach = function() {
+    if (document.removeEventListener) {
+      root.removeEventListener('scroll', debounceOrThrottle);
+    } else {
+      root.detachEvent('onscroll', debounceOrThrottle);
+    }
+    clearTimeout(poll);
+  };
+
+  return echo;
+
+});
+function deepCopy(c, p) {
+　var c = c || {};
+　for (var i in p) {
+　　if (typeof p[i] === 'object') {
+　　　c[i] = (p[i].constructor === Array) ? [] : {};
+　　　deepCopy(p[i], c[i]);
+　　} else {
+　　　c[i] = p[i];
+　　}
+　}
+　return c;
+}
+/**
+ * 网站js
+ * @author 小亭子
+ * @type {{init, toggleMenu}}
+ */
+var JELON = window.JELON || {};
+JELON = deepCopy(JELON, {
+  name: 'JELON',
+  version: '0.0.2',
+  init: function() {
+    this.toggleMenu();
+    this.backToTop();
+
+    echo.init({
+      offset: 50,
+      throttle: 250,
+      unload: false,
+      callback: function(element, op) {
+        console.log(element, 'has been', op + 'ed')
+      }
+    });
+  },
+  $: function(str) {
+    return /^(\[object HTML)[a-zA-Z]*(Element\])$/.test(Object.prototype.toString.call(str)) ? str : document.getElementById(str);
+  },
+  toggleMenu: function() {
+    var _this = this,
+      $menu = _this.$(_this.name + '__menu');
+    _this.$(_this.name + '__btnDropNav').onclick = function() {
+      if ($menu.className.indexOf('hidden') === -1) {
+        $menu.className += ' hidden';
+      } else {
+        $menu.className = $menu.className.replace(/\s*hidden\s*/, '');
+      }
+
+    };
+  },
+  backToTop: function() {
+    var _this = this;
+    if (typeof _this.$(_this.name + '__backToTop') === 'undefined') return;
+    window.onscroll = window.onresize = function() {
+      if (document.documentElement.scrollTop + document.body.scrollTop > 0) {
+        _this.$(_this.name + '__backToTop').style.display = 'block';
+      } else {
+        _this.$(_this.name + '__backToTop').style.display = 'none';
+      }
+    };
+    _this.$(_this.name + '__backToTop').onclick = function() {
+      var Timer = setInterval(GoTop, 10);
+
+      function GoTop() {
+        if (document.documentElement.scrollTop + document.body.scrollTop < 1) {
+          clearInterval(Timer)
+        } else {
+          document.documentElement.scrollTop /= 1.1;
+          document.body.scrollTop /= 1.1
+        }
+      }
+    };
+  }
+});
+
+/**
+ * 程序入口
+ */
+JELON.init();
