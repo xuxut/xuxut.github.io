@@ -1,527 +1,478 @@
-<!DOCTYPE html>
-<html>
-<head>
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
     
+    <title>使用less定制bootstrap的过程 | 小亭子Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="TT, 前端, Web, 小亭子, 前端开发">
+    <meta name="description" content="小亭子个人前端小站">
 
     
-
+    <link rel="alternative" href="/atom.xml" title="小亭子Blog" type="application/atom+xml">
     
-
-
-
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>使用less定制bootstrap的过程 | 小亭子的博客 | 跌倒了仍然可以继续前进！</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#FAA2D2">
-    
-    
-    <meta name="keywords" content="css,less,bootstrap">
-    <meta name="description" content="本例更改了导航部分的颜色。">
-<meta name="keywords" content="css,less,bootstrap">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用less定制bootstrap的过程">
-<meta property="og:url" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/index.html">
-<meta property="og:site_name" content="小亭子的博客">
-<meta property="og:description" content="本例更改了导航部分的颜色。">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/3.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/4.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/5.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/6.jpg">
-<meta property="og:updated_time" content="2018-03-04T08:09:10.218Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用less定制bootstrap的过程">
-<meta name="twitter:description" content="本例更改了导航部分的颜色。">
-<meta name="twitter:image" content="http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/1.jpg">
     
     <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
-
-    <!-- custom head -->
     
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
 
 </head>
-
-<body>
-    <div id="loading" class="active"></div>
-
-    <aside id="menu" class="hide" >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="https://avatars2.githubusercontent.com/u/29862231?v=4">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">小亭子</h5>
-          <a href="mailto:790791303@qq.com" title="790791303@qq.com" class="mail">790791303@qq.com</a>
-        </hgroup>
-      </div>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
-        
-            <li class="waves-block waves-effect">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">小亭子Blog</span>
+                    <span class="description">不怕跌倒！</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/03/04/使用less定制bootstrap的过程/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
             </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                时间归档
-              </a>
+            
+            <li rel="/2018/03/04/使用less定制bootstrap的过程/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
             </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                标签
-              </a>
+            
+            <li rel="/2018/03/04/使用less定制bootstrap的过程/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
             </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                分类
-              </a>
+            
+            <li rel="/2018/03/04/使用less定制bootstrap的过程/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
             </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/xuxut" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
-        
-            <li class="waves-block waves-effect">
-              <a href="/about"  >
-                <i class="icon icon-lg icon-link"></i>
-                关于我
-              </a>
-            </li>
-        
-      </ul>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/xuxut" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Coding</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/xuxut" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="https://avatars.githubusercontent.com/xuxut" alt="avatar" title="小亭子">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>使用less定制bootstrap的过程</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        小亭子 发表于
+        <time datetime="2018-03-04T07:33:07.000Z">2018-03-04</time>
+    </p>
+    <div class="post-content">
+        <p>本例更改了导航部分的颜色。<br><a id="more"></a></p>
+<p><img src="./1.jpg" alt title="下载"><br><img src="./2.jpg" alt title="less"><br><img src="./3.jpg" alt title="定制"><br><img src="./4.jpg" alt title="定制"><br><img src="./5.jpg" alt title="定制"></p>
+<blockquote>
+<p>定制完成之后就可以进行编译了。<br><img src="./6.jpg" alt title="编译"></p>
+</blockquote>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/前端编译器/">前端编译器</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/css/" title="css">css</a> / 
+    
+        <a href="/tags/less/" title="less">less</a> / 
+    
+        <a href="/tags/bootstrap/" title="bootstrap">bootstrap</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
     </div>
   </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">使用less定制bootstrap的过程</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
-        </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
-    </div>
-</header>
-<header class="content-header post-header">
 
-    <div class="container fade-scale">
-        <h1 class="title">使用less定制bootstrap的过程</h1>
-        <h5 class="subtitle">
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/03/08/如何存储对象/">
             
-                <time datetime="2018-03-04T07:33:07.000Z" itemprop="datePublished" class="page-time">
-  2018-03-04
-</time>
-
-
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端编译器/">前端编译器</a></li></ul>
-
+                如何存储对象（深拷贝）
             
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-
-<div class="container body-wrap">
-    
-
-<article id="post-使用less定制bootstrap的过程"
-  class="post-article article-type-post fade" itemprop="blogPost">
-
-    <div class="post-card">
-        <h1 class="post-card-title">使用less定制bootstrap的过程</h1>
-        <div class="post-meta">
-            <time class="post-time" title="2018-03-04 15:33:07" datetime="2018-03-04T07:33:07.000Z"  itemprop="datePublished">2018-03-04</time>
-
-            
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/前端编译器/">前端编译器</a></li></ul>
-
-
-
-            
-<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
-    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
-</span>
-
-
-        </div>
-        <div class="post-content" id="post-content" itemprop="postContent">
-            <p>本例更改了导航部分的颜色。<br><a id="more"></a></p>
-<p><img src="./1.jpg" alt="" title="下载"><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="./2.jpg" alt="less" title="">
-                </div>
-                <div class="image-caption">less</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="./3.jpg" alt="定制" title="">
-                </div>
-                <div class="image-caption">定制</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="./4.jpg" alt="定制" title="">
-                </div>
-                <div class="image-caption">定制</div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="./5.jpg" alt="定制" title="">
-                </div>
-                <div class="image-caption">定制</div>
-            </figure></p>
-<blockquote>
-<p>定制完成之后就可以进行编译了。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="./6.jpg" alt="编译" title="">
-                </div>
-                <div class="image-caption">编译</div>
-            </figure></p>
-</blockquote>
-
-        </div>
-
-        <blockquote class="post-copyright">
-    
-    <div class="content">
-        
-<span class="post-time">
-    最后更新时间：<time datetime="2018-03-04T08:09:10.218Z" itemprop="dateUpdated">2018-03-04 16:09:10</time>
-</span><br>
-
-
-        
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/03/04/使用less定制bootstrap的过程/" target="_blank" rel="external">http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/</a>
-        
-    </div>
-    
-    <footer>
-        <a href="http://yoursite.com">
-            <img src="https://avatars2.githubusercontent.com/u/29862231?v=4" alt="小亭子">
-            小亭子
         </a>
-    </footer>
-</blockquote>
-
-        
-<div class="page-reward">
-    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
-</div>
-
-
-
-        <div class="post-footer">
-            
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bootstrap/">bootstrap</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/less/">less</a></li></ul>
-
-
-            
-<div class="page-share-wrap">
-    
-
-<div class="page-share" id="pageShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&title=《使用less定制bootstrap的过程》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&title=《使用less定制bootstrap的过程》 — 小亭子的博客&source=本例更改了导航部分的颜色。" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用less定制bootstrap的过程》 — 小亭子的博客&url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&via=http://yoursite.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-
-    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
-        <i class="icon icon-share-alt icon-lg"></i>
-    </a>
-</div>
-
-
-
-        </div>
-    </div>
-
-    
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2018/03/08/如何存储对象/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">如何存储对象（深拷贝）</h4>
-      </a>
-    </div>
-  
-
-  
-    <div class="waves-block waves-effect next">
-      <a href="/2018/03/04/08vue/" id="post-next" class="post-nav-link">
-        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">vue重构项目遇到的问题以及vue项目打包</h4>
-      </a>
-    </div>
-  
-</nav>
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</article>
-
-<div id="reward" class="page-modal reward-lay">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <h3 class="reward-title">
-        <i class="icon icon-quote-left"></i>
-        谢谢你请我吃糖果~
-        <i class="icon icon-quote-right"></i>
-    </h3>
-    <div class="reward-content">
-        
-        <div class="reward-code">
-            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
-        </div>
-        
-        <label class="reward-toggle">
-            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
-                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
-            <div class="reward-toggle-ctrol">
-                <span class="reward-toggle-item wechat">微信</span>
-                <span class="reward-toggle-label"></span>
-                <span class="reward-toggle-item alipay">支付宝</span>
-            </div>
-        </label>
-        
-    </div>
-</div>
-
-
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
     </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
+    
 
-
-        <p>
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/03/04/08vue/">
             
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>小亭子 &copy; 2017 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
-    </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
-
-
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&title=《使用less定制bootstrap的过程》 — 小亭子的博客&pic=https://avatars2.githubusercontent.com/u/29862231?v=4" data-title="微博">
-          <i class="icon icon-weibo"></i>
+                vue重构项目遇到的问题以及vue项目打包
+            
         </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&title=《使用less定制bootstrap的过程》 — 小亭子的博客&source=本例更改了导航部分的颜色。" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《使用less定制bootstrap的过程》 — 小亭子的博客&url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/&via=http://yoursite.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/03/04/使用less定制bootstrap的过程/" alt="微信分享二维码">
+    </span>
+    
 </div>
 
+<!-- 文章评论 -->
 
-
-
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
-
-
-</script>
-
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
-
-
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
         </div>
-    </a>
-</li>
-</template>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '使用less定制bootstrap的过程' || '2018/03/04/使用less定制bootstrap的过程/',
+    owner: 'xuxut',
+    repo: 'blog_comments',
+    clientId: '631adc330b6c1dea6507',
+    clientSecret: '957d552e22d621653e22f155a00b0363058317fc'
+  });
+  </script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
+            </div>
 
-
-
-
-
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '人去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '咦!回来了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <!-- 搜索框 -->
+    <div id="site_search">
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="form-control search">
+        <!-- 清空/重置搜索框 -->
+        <i class="search-clear"></i>
+        <!-- 搜索结果区 -->
+        <div id="local-search-result"></div>
+        <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
+        <p class="no-result">无搜索结果 </p> 
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
         }
-    });
-})();
-</script>
+        var path = "/" + search_path;
+       
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    
+         // 清空搜索
+         $('.search-clear').click(function(){
+            // $('#local-search-input').val('')
+            searchFunc(path, 'local-search-input', 'local-search-result');
+            // $('#local-search-result').hide()
+            // $('.no-result').show()
+        })
+    </script>
 
+    <!-- 文章分类 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/博客开发/">博客开发</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端框架/">前端框架</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/react/">react</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/打包工具/">打包工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端编译器/">前端编译器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/es6/">es6</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/ui框架/">ui框架</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/微信小程序/">微信小程序</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/微信网页版/">微信网页版</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
 
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (7)</a>
+  
+    <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
+  
+    <a class="tag-item" href="/tags/html/" title="html">html (1)</a>
+  
+    <a class="tag-item" href="/tags/javascipt/" title="javascipt">javascipt (1)</a>
+  
+    <a class="tag-item" href="/tags/jquery/" title="jquery">jquery (1)</a>
+  
+    <a class="tag-item" href="/tags/javascript/" title="javascript">javascript (3)</a>
+  
+    <a class="tag-item" href="/tags/vue/" title="vue">vue (1)</a>
+  
+    <a class="tag-item" href="/tags/react/" title="react">react (3)</a>
+  
+    <a class="tag-item" href="/tags/git/" title="git">git (2)</a>
+  
+    <a class="tag-item" href="/tags/vscode/" title="vscode">vscode (1)</a>
+  
+    <a class="tag-item" href="/tags/node/" title="node">node (1)</a>
+  
+    <a class="tag-item" href="/tags/高阶组件HOC/" title="高阶组件HOC">高阶组件HOC (1)</a>
+  
+    <a class="tag-item" href="/tags/webpack/" title="webpack">webpack (1)</a>
+  
+    <a class="tag-item" href="/tags/fetch/" title="fetch">fetch (1)</a>
+  
+    <a class="tag-item" href="/tags/下载/" title="下载">下载 (1)</a>
+  
+    <a class="tag-item" href="/tags/css/" title="css">css (1)</a>
+  
+    <a class="tag-item" href="/tags/less/" title="less">less (1)</a>
+  
+    <a class="tag-item" href="/tags/bootstrap/" title="bootstrap">bootstrap (1)</a>
+  
+    <a class="tag-item" href="/tags/redux/" title="redux">redux (1)</a>
+  
+    <a class="tag-item" href="/tags/redux-thunk/" title="redux-thunk">redux-thunk (1)</a>
+  
+    <a class="tag-item" href="/tags/网址/" title="网址">网址 (1)</a>
+  
+    <a class="tag-item" href="/tags/mpvue/" title="mpvue">mpvue (1)</a>
+  
+    <a class="tag-item" href="/tags/weui/" title="weui">weui (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (2)</a>
+  
+    <a class="tag-item" href="/tags/antd-mobile/" title="antd-mobile">antd-mobile (1)</a>
+  
+    <a class="tag-item" href="/tags/微信JS-SDK/" title="微信JS-SDK">微信JS-SDK (1)</a>
+  
+</div>
+    </section>
+    
 
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://xuxut.github.io" target="_blank" title="小亭子个人前端小站">前端博客小站</a>
+        </li>
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">小亭子 Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
 </body>
 </html>
