@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+    <meta name="baidu-site-verification" content="dIcXMeY8Ya">
+    
+    <title>vue重构项目遇到的问题以及vue项目打包 | 小亭子Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="keywords" content="TT, 前端, Web, 小亭子, 前端开发">
+    <meta name="description" content="小亭子个人前端小站">
+
+    
+    <link rel="alternative" href="/atom.xml" title="小亭子Blog" type="application/atom+xml">
+    
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <!--[if lt IE 9]>
+    <script src="/js/html5.js"></script>
+    <![endif]-->
+    
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?fd459238242776d173cdc64918fb32f2";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+</head>
+</html>
+<body class="home">
+    <!--[if lt IE 9]>
+    <div class="browsehappy">
+        当前网页 <strong>不支持</strong>
+        你正在使用的浏览器. 为了正常的访问, 请 <a href="http://browsehappy.com/">升级你的浏览器</a>.
+    </div>
+    <![endif]-->
+
+    <!-- 博客头部 -->
+    <header class="header">
+    <section class="container header-main">
+        <div class="logo">
+            <a href="/">
+                <div class="cover">
+                    <span class="name">小亭子Blog</span>
+                    <span class="description">不怕跌倒！</span>
+                </div>
+            </a>
+        </div>
+        <div class="dropnav icon-paragraph-justify" id="JELON__btnDropNav"></div>
+        <ul class="menu hidden" id="JELON__menu">
+            
+            <li rel="/2018/03/04/08vue/index.html" class="item ">
+                <a href="/" title="首页" class="icon-home">&nbsp;首页</a>
+            </li>
+            
+            <li rel="/2018/03/04/08vue/index.html" class="item ">
+                <a href="/lab/" title="实验室" class="icon-lab">&nbsp;实验室</a>
+            </li>
+            
+            <li rel="/2018/03/04/08vue/index.html" class="item ">
+                <a href="/about/" title="关于" class="icon-about">&nbsp;关于</a>
+            </li>
+            
+            <li rel="/2018/03/04/08vue/index.html" class="item ">
+                <a href="/comment/" title="留言" class="icon-comment">&nbsp;留言</a>
+            </li>
+            
+        </ul>
+        <div class="profile clearfix">
+            <div class="feeds fl">
+                
+                
+                <p class="links">
+                    
+                        <a href="https://github.com/xuxut" target="_blank">Github</a>
+                        |
+                    
+                        <a href="https://pages.coding.me" target="_blank">Coding</a>
+                        
+                    
+                </p>
+                <p class="sns">
+                    
+                        <a href="http://weibo.com/xuxut" class="sinaweibo" target="_blank"><b>■</b> 新浪微博</a>
+                    
+                        <a href="https://www.facebook.com/profile.php?id=100011855760219&amp;ref=bookmarks" class="qqweibo" target="_blank"><b>■</b> Facebook</a>
+                    
+                    <a href="javascript: void(0);" class="wechat">
+                        <b>■</b>
+                        公众号
+                        <span class="popover">
+                            <img src="/img/wechat_mp.jpg" width="120" height="120" alt="我的微信订阅号">
+                            <i class="arrow"></i>
+                        </span>
+                    </a>
+                </p>
+                
+            </div>
+            <div class="avatar fr">
+                <img src="https://avatars.githubusercontent.com/xuxut" alt="avatar" title="小亭子">
+            </div>
+        </div>
+    </section>
+</header>
+
+
+    <!-- 博客正文 -->
+    <div class="container body clearfix">
+        <section class="content">
+            <div class="content-main widget">
+                <!-- 文章页 -->
+<!-- 文章 -->
+<article class="post article">
+    <header class="text-center">
+        <h3 class="post-title"><span>vue重构项目遇到的问题以及vue项目打包</span></h3>
+    </header>
+    <p class="post-meta text-center">
+        小亭子 发表于
+        <time datetime="2018-03-04T05:32:49.000Z">2018-03-04</time>
+    </p>
+    <div class="post-content">
+        <p> 本文描述的是在用vue重构项目时所遇到的一些问题。在此记录一下。<br><a id="more"></a></p>
+<h2 id="1-如果图片的路径是变量，需要用require-“路径变量”"><a href="#1-如果图片的路径是变量，需要用require-“路径变量”" class="headerlink" title="1.如果图片的路径是变量，需要用require(“路径变量”)"></a>1.如果图片的路径是变量，需要用require(“路径变量”)</h2><h2 id="2-子组件之间的通信"><a href="#2-子组件之间的通信" class="headerlink" title="2.子组件之间的通信"></a>2.子组件之间的通信</h2><h3 id="1-在全局定义window-bus。"><a href="#1-在全局定义window-bus。" class="headerlink" title="(1)在全局定义window.bus。"></a>(1)在全局定义window.bus。</h3><blockquote>
+<p>通知：bus.$emit(“事件名称”,数据)<br>接收：bus.$on(“事件名称”,function(msg){})</p>
+</blockquote>
+<h3 id="2-或者使用本地存储技术"><a href="#2-或者使用本地存储技术" class="headerlink" title="(2)或者使用本地存储技术"></a>(2)或者使用本地存储技术</h3><blockquote>
+<p>localStorage/sessionStorage.setItem(“名称”,数据)<br>localStorage/sessionStorage.getItem(“名称”)<br>localStorage/sessionStorage.removeItem(“名称”)</p>
+</blockquote>
+<h2 id="3-怎样刷新页面，局部刷新？？"><a href="#3-怎样刷新页面，局部刷新？？" class="headerlink" title="3.怎样刷新页面，局部刷新？？"></a>3.怎样刷新页面，局部刷新？？</h2><p></p><h3>this.$router.push(“/路径”)不支持刷新</h3><p></p>
+<blockquote>
+<p>window.location.reload()是刷新整个页面，我想只刷新某部分的router-view<br>this.$router.go(0);刷新整个页面</p>
+</blockquote>
+<h2 id="4-关于通信问题。"><a href="#4-关于通信问题。" class="headerlink" title="4.关于通信问题。"></a>4.关于通信问题。</h2><p>(1)父与子：<br>① props<br><img src="./父与子.jpg" alt><br>② $refs<br><img src="./父与子ref.jpg" alt><br>③ $parent<br><img src="./父与子$parent.jpg" alt><br>(2)子与父：<br>子：$emit.事件<br> <img src="./子与父子.jpg" alt><br>父：标签中 @事件=””<br> <img src="./子与父父.jpg" alt></p>
+<p>(3)子与子bus<br>子1（传递$emit）:<br> <img src="./子与子子1.jpg" alt><br>子2（绑定$on）：<br> <img src="./子与子子2.jpg" alt></p>
+<h1 id="vue环境搭建"><a href="#vue环境搭建" class="headerlink" title="vue环境搭建"></a>vue环境搭建</h1><p><img src="./搭建.jpg" alt></p>
+<h1 id="vue项目打包"><a href="#vue项目打包" class="headerlink" title="vue项目打包"></a>vue项目打包</h1><p>1.config/index.js<br><img src="./index.jpg" alt><br>2.build/utils.js<br><img src="./util.jpg" alt><br>3.根目录下运行npm run build<br>4.完成后文件保存在根目录下的dist，需要打开服务器，才能打开index.html</p>
+<h1 id="vue-router的导航钩子"><a href="#vue-router的导航钩子" class="headerlink" title="vue-router的导航钩子"></a>vue-router的导航钩子</h1><p>1.全局导航钩子（前置守卫、后置钩子）<br>（1）全局前置守卫<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">const router = new VueRouter(&#123;...&#125;)</span><br><span class="line">router.beforeEach((to,from,next)=&gt;&#123;</span><br><span class="line">	//do something</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">to:Route，代表要进入的目标，它是一个路由对象</span><br><span class="line">from:Route，代表当前正要离开的路由，同样也是一个路由对象</span><br><span class="line">next:Function，这是一个必须需要调用的方法，而具体的执行效果则依赖next方法调用的参数</span><br></pre></td></tr></table></figure></p>
+<p><img src="./vue-router-nav.jpg" alt><br>（2）全局后置钩子:不同于前置守卫，后置钩子没有next函数，也不会改变导航本身。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">router.afterEach((to,from)=&gt;&#123;</span><br><span class="line">	//do something</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>2.路由独享的钩子：在路由配置上直接定义的：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cont router = new VueRouter(&#123;</span><br><span class="line">     routes:[</span><br><span class="line">	&#123;</span><br><span class="line">		path:&apos;/file&apos;,</span><br><span class="line">		component:File,</span><br><span class="line">		beforeEnter:((to,from,next)=&gt;&#123;</span><br><span class="line">			//do something</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">     ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>3.组件内的导航钩子<br>4.父组件向子组件传递props（异步请求回来的数据）时，在子组件的生命周期挂载后，数据为undefined,用定时器延迟来接收即可。<br>5.改变对象或数组不会触发DOM更新，解决办法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eg: const obj = that.keywordList[key]</span><br><span class="line">		obj.checked = !obj.checked</span><br><span class="line">		that.leywordList.splice(index, 1, obj)</span><br></pre></td></tr></table></figure></p>
+<p>6.若需要动态添加元素的CSS,则<style></style>不能写scoped属性<br>7.nextTick:在视图更新之后，基于新的视图进行操作。<br>看一个例子：<br>点击show按钮使得原来v-show：false的input输入框显示，并获取焦点：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">  &lt;input ref=&quot;input&quot; v-show=&quot;inputShow&quot;&gt;</span><br><span class="line">  &lt;button @click=&quot;show&quot;&gt;show&lt;/button&gt;  </span><br><span class="line"> &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &quot;#app&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">   return &#123;</span><br><span class="line">     inputShow: false</span><br><span class="line">   &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    show() &#123;</span><br><span class="line">      this.inputShow = true</span><br><span class="line">      this.$nextTick(() =&gt; &#123;</span><br><span class="line">        this.$refs.input.focus()</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+
+    </div>
+    <p class="post-meta">
+        <span class="post-cat">分类：
+            <a class="cat-link" href="/categories/前端/">前端</a>
+        </span>
+        <span class="post-tags">
+            标签：
+            
+    
+        <a href="/tags/javascript/" title="javascript">javascript</a> / 
+    
+        <a href="/tags/vue/" title="vue">vue</a>
+    
+
+        </span>
+    </p>
+</article>
+<!-- 分享按钮 -->
+
+  <div class="article-share clearfix text-center">
+    <div class="share-area">
+      <span class="share-txt">分享到：</span>
+      <a href="javascript: window.open('http://service.weibo.com/share/share.php?url=' + encodeURIComponent(location.href) + '&title=' + document.title + '&language=zh_cn');" class="share-icon weibo"></a>
+      <a href="javascript: alert('请复制链接到微信并发送');" class="share-icon wechat"></a>
+      <a href="javascript: window.open('http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=' + encodeURIComponent(location.href) + '&title=' + document.title);" class="share-icon qqzone"></a>
+      <a href="javascript: window.open('http://connect.qq.com/widget/shareqq/index.html?url=' + encodeURIComponent(location.href) + '&desc=Jelon个人博客&title=' + document.title + '&callback=' + encodeURIComponent(location.href));" class="share-icon qq"></a>
+      <a href="javascript: window.open('http://shuo.douban.com/!service/share?href=' + encodeURIComponent(location.href) + '&name=' + document.title + '&text=' + document.title);" class="share-icon douban"></a>
+    </div>
+  </div>
+
+
+<!-- 上一篇/下一篇 -->
+
+<div class="article-nav clearfix">
+    
+    <span class="prev fl">
+        上一篇<br>
+        <a href="/2018/03/04/使用less定制bootstrap的过程/">
+            
+                使用less定制bootstrap的过程
+            
+        </a>
+    </span>
+    
+
+    
+    <span class="next fr">
+        下一篇<br>
+        <a href="/2018/03/01/07lazyload/">
+            
+                懒加载与预加载
+            
+        </a>
+    </span>
+    
+</div>
+
+<!-- 文章评论 -->
+
+  <script src="/js/comment.js"></script>
+  <div id="comments" class="comment">
+    <!--
+    <div class="sign-bar">
+      GitHub 已登录!
+      <span class="sign-link">登出</span>
+    </div>
+    <section class="box">
+      <div class="com-avatar"><img src="/img/jelon.jpg" alt="avatar"></div>
+      <div class="com-text">
+        <div class="main">
+          <textarea class="text-area-edited show" placeholder="欢迎评论！"></textarea>
+          <div class="text-area-preview"></div>
+        </div>
+        <div class="switch">
+          <div class="switch-item on">编辑</div>
+          <div class="switch-item">预览</div>
+        </div>
+        <div class="button">提交</div>
+      </div>
+    </section>
+    <section class="tips">注：评论支持 markdown 语法！</section>
+    <section class="list-wrap">
+      <ul class="list">
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">张德龙</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like liked">已赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">333333</div>
+          </div>
+        </li>
+        <li>
+          <div class="user-avatar">
+            <a href="/">
+              <img src="/img/jelon.jpg" alt="user-avatar">
+            </a>
+          </div>
+          <div class="user-comment">
+            <div class="user-comment-header">
+              <span class="post-name">刘德华</span>
+              <span class="post-time">2017年12月12日</span>
+              <span class="like">点赞</span>
+              <span class="like-num">2</span>
+            </div>
+            <div class="user-comment-body">vvvvv</div>
+          </div>
+        </li>
+      </ul>
+      <div class="page-nav">
+        <a href="javascript: void(0);" class="item">1</a>
+        <a href="javascript: void(0);" class="item">2</a>
+        <a href="javascript: void(0);" class="item current">3</a>
+      </div>
+    </section>
+    -->
+  </div>
+  <script>
+  JELON.Comment({
+    container: 'comments',
+    label: '08vue' || '2018/03/04/08vue/',
+    owner: 'xuxut',
+    repo: 'blog_comments',
+    clientId: '631adc330b6c1dea6507',
+    clientSecret: '957d552e22d621653e22f155a00b0363058317fc'
+  });
+  </script>
+
+
+            </div>
+
+        </section>
+        <!-- 侧栏部分 -->
+<aside class="sidebar">
+    <!-- 搜索框 -->
+    <div id="site_search">
+        <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索..." class="form-control search">
+        <!-- 清空/重置搜索框 -->
+        <i class="search-clear"></i>
+        <!-- 搜索结果区 -->
+        <div id="local-search-result"></div>
+        <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 -->
+        <p class="no-result">无搜索结果 </p> 
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/search.js"></script>
+    <script type="text/javascript">
+        var search_path = "search.xml";
+        if (search_path.length == 0) {
+            search_path = "search.xml";
+        }
+        var path = "/" + search_path;
+       
+        searchFunc(path, 'local-search-input', 'local-search-result');
+    
+         // 清空搜索
+         $('.search-clear').click(function(){
+            // $('#local-search-input').val('')
+            searchFunc(path, 'local-search-input', 'local-search-result');
+            // $('#local-search-result').hide()
+            // $('.no-result').show()
+        })
+    </script>
+
+    <!-- 文章分类 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>文章分类</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+    <li>
+        <a href="/categories/博客开发/">博客开发</a>
+        <span class="badge">(7)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/后端/">后端</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端/">前端</a>
+        <span class="badge">(5)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端框架/">前端框架</a>
+        <span class="badge">(2)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/工具/">工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/react/">react</a>
+        <span class="badge">(3)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/打包工具/">打包工具</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/前端编译器/">前端编译器</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/es6/">es6</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/ui框架/">ui框架</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/微信小程序/">微信小程序</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+    <li>
+        <a href="/categories/微信网页版/">微信网页版</a>
+        <span class="badge">(1)</span>
+    </li>
+    
+</ul>
+    </section>
+
+    
+    <section class="widget">
+        <h3 class="widget-hd"><strong>热门标签</strong></h3>
+        <!-- 文章标签 -->
+<div class="widget-bd tag-wrap">
+  
+    <a class="tag-item" href="/tags/hexo/" title="hexo">hexo (7)</a>
+  
+    <a class="tag-item" href="/tags/php/" title="php">php (1)</a>
+  
+    <a class="tag-item" href="/tags/html/" title="html">html (1)</a>
+  
+    <a class="tag-item" href="/tags/javascipt/" title="javascipt">javascipt (1)</a>
+  
+    <a class="tag-item" href="/tags/jquery/" title="jquery">jquery (1)</a>
+  
+    <a class="tag-item" href="/tags/javascript/" title="javascript">javascript (3)</a>
+  
+    <a class="tag-item" href="/tags/vue/" title="vue">vue (1)</a>
+  
+    <a class="tag-item" href="/tags/react/" title="react">react (3)</a>
+  
+    <a class="tag-item" href="/tags/git/" title="git">git (2)</a>
+  
+    <a class="tag-item" href="/tags/vscode/" title="vscode">vscode (1)</a>
+  
+    <a class="tag-item" href="/tags/node/" title="node">node (1)</a>
+  
+    <a class="tag-item" href="/tags/高阶组件HOC/" title="高阶组件HOC">高阶组件HOC (1)</a>
+  
+    <a class="tag-item" href="/tags/webpack/" title="webpack">webpack (1)</a>
+  
+    <a class="tag-item" href="/tags/fetch/" title="fetch">fetch (1)</a>
+  
+    <a class="tag-item" href="/tags/下载/" title="下载">下载 (1)</a>
+  
+    <a class="tag-item" href="/tags/css/" title="css">css (1)</a>
+  
+    <a class="tag-item" href="/tags/less/" title="less">less (1)</a>
+  
+    <a class="tag-item" href="/tags/bootstrap/" title="bootstrap">bootstrap (1)</a>
+  
+    <a class="tag-item" href="/tags/redux/" title="redux">redux (1)</a>
+  
+    <a class="tag-item" href="/tags/redux-thunk/" title="redux-thunk">redux-thunk (1)</a>
+  
+    <a class="tag-item" href="/tags/网址/" title="网址">网址 (1)</a>
+  
+    <a class="tag-item" href="/tags/mpvue/" title="mpvue">mpvue (1)</a>
+  
+    <a class="tag-item" href="/tags/weui/" title="weui">weui (1)</a>
+  
+    <a class="tag-item" href="/tags/js/" title="js">js (2)</a>
+  
+    <a class="tag-item" href="/tags/antd-mobile/" title="antd-mobile">antd-mobile (1)</a>
+  
+    <a class="tag-item" href="/tags/微信JS-SDK/" title="微信JS-SDK">微信JS-SDK (1)</a>
+  
+</div>
+    </section>
+    
+
+    
+
+    
+    <!-- 友情链接 -->
+    <section class="widget">
+        <h3 class="widget-hd"><strong>友情链接</strong></h3>
+        <!-- 文章分类 -->
+<ul class="widget-bd">
+    
+        <li>
+            <a href="https://xuxut.github.io" target="_blank" title="小亭子个人前端小站">前端博客小站</a>
+        </li>
+    
+        <li>
+            <a href="https://www.baidu.com" target="_blank" title="百度搜索">百度</a>
+        </li>
+    
+</ul>
+    </section>
+    
+</aside>
+<!-- / 侧栏部分 -->
+    </div>
+
+    <!-- 博客底部 -->
+    <footer class="footer">
+    &copy;
+    
+        2016-2019
+    
+
+    <a href="/">小亭子 Loves You</a>
+</footer>
+<div class="back-to-top" id="JELON__backToTop" title="返回顶部">返回顶部</div>
+
+    <!--博客js脚本 -->
+    <!-- 这里放网站js脚本 -->
+<script src="/js/main.js"></script>
+</body>
+</html>
